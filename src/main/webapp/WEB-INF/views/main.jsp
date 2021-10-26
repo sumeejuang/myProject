@@ -8,25 +8,31 @@
             <li class="bg-dark-30 bg-light shop-page-header" style="background-image:url(&quot;assets/images/subs/main02.jpg&quot;);">
               <div class="titan-caption">
                 <div class="caption-content">
-                  <div class="font-alt mb-30 titan-title-size-1"> This is Titan</div>
-                  <div class="font-alt mb-40 titan-title-size-4">Exclusive products</div><a class="section-scroll btn btn-border-w btn-round" href="#latest">Learn More</a>
+                  <div class="font-alt mb-30 titan-title-size-1"> 런드로맷 침구세탁 정기서비스</div>
+                  <div class="font-alt mb-40 titan-title-size-4">
+                  당신의 침구,<br/>
+                  세탁한지 얼마나 되었나요?</div>
+                  <a class="section-scroll btn btn-border-w btn-round-lg" href="#">
+                  SUBSCRIPTION 시작하기</a>
                 </div>
               </div>
             </li>
             <li class="bg-dark-30 bg-dark shop-page-header" style="background-image:url(&quot;assets/images/subs/main01.jpg&quot;);">
               <div class="titan-caption">
                 <div class="caption-content">
-                  <div class="font-alt mb-30 titan-title-size-1">This is Titan</div>
-                  <div class="font-alt mb-30 titan-title-size-4"> Summer 2017</div>
-                  <div class="font-alt mb-40 titan-title-size-1">Your online fashion destination</div><a class="section-scroll btn btn-border-w btn-round" href="#latest">Learn More</a>
+                  <div class="font-alt mb-30 titan-title-size-1">런드로맷 침구샵</div>
+                  <div class="font-alt mb-30 titan-title-size-4"> WINTER 2021</div>
+                  <div class="font-alt mb-40 titan-title-size-1">Your online COMFORTHERS destination</div>
+                  <a class="section-scroll btn btn-border-w btn-round" href="#">BEDDING SHOP 구매하기</a>
                 </div>
               </div>
             </li>
              <li class="bg-dark-30 bg-light shop-page-header" style="background-image:url(&quot;assets/images/subs/main03.jpg&quot;);">
               <div class="titan-caption">
                 <div class="caption-content">
-                  <div class="font-alt mb-30 titan-title-size-1"> This is Titan</div>
-                  <div class="font-alt mb-40 titan-title-size-4">Exclusive products</div><a class="section-scroll btn btn-border-w btn-round" href="#latest">Learn More</a>
+                  <div class="font-alt mb-30 titan-title-size-1">런드로맷의 발견</div>
+                  <div class="font-alt mb-40 titan-title-size-4">Brand Story</div>
+                  <a class="section-scroll btn btn-border-w btn-round" href="#">Learn More 더알아보기</a>
                 </div>
               </div>
             </li>

@@ -139,8 +139,8 @@
 				About</a>
 				<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
 					<li><a class="dropdown-item" href="#">Brand Story</a></li>
-					<li><a class="dropdown-item" href="#">blog</a></li>
-					<li><a class="dropdown-item" href="#">review</a></li>
+					<li><a class="dropdown-item" href="#">Blog</a></li>
+					<li><a class="dropdown-item" href="#">Review</a></li>
 					<li><a class="dropdown-item" href="#">Q&A</a></li>
 					<li><a class="dropdown-item" href="#">Notice</a></li>
 				</ul></li>
