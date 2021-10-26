@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageControllerTest {
 	
 	@GetMapping("/")
-	public String home(){
-		return "home";
+	public String main(){
+		return "main";
+	}
+
+	@GetMapping("joinForm")
+	public String register() {
+		return "/user/joinForm";
 	}
 
 }
