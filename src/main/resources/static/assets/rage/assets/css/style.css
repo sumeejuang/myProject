@@ -2079,7 +2079,8 @@ Footer Section style
 
 
 .dropdown-toggle::after {
-	display: none
+	display: none;
+    margin-top: 0;
 }
 
 .attr-nav > ul > li > a span.badge {

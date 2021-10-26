@@ -1,15 +1,4 @@
-/* ==============================================================
-
-Template name : Bootsnav - Multi Purpose Header
-Categorie : Bootstrap Menu in CSS
-Author : adamnurdin01
-Version : v.1.1
-Created : 2016-06-02
-Last update : 2016-06-11
-
-============================================================== */
-
-/* MEGAMENU STYLE
+y/* MEGAMENU STYLE
 =================================*/
 nav.bootsnav .dropdown.megamenu-fw {
     position: static;
@@ -318,19 +307,19 @@ ul.cart-list > li.total > span{
 /* Top Search
 =================================*/
 .top-search{
-    background-color: #333;
+    background-color: #ffffff;
     padding: 10px 0;
     display: none;
 }
 
 .top-search input.form-control{
     background-color: transparent;
-    border: none;
+    border: 1px;
     -moz-box-shadow: 0px 0px 0px;
     -webkit-box-shadow: 0px 0px 0px;
     -o-box-shadow: 0px 0px 0px;
     box-shadow: 0px 0px 0px;
-    color: #fff;
+    color: #00008c;
     height: 40px;
     padding: 0 15px;
 }
@@ -338,7 +327,7 @@ ul.cart-list > li.total > span{
 .top-search .input-group-addon{
     background-color: transparent;
     border: none;
-    color: #fff;
+    color: #00008c;
     padding-left: 0;
     padding-right: 0;
 }
@@ -370,7 +359,7 @@ body.on-side{
     padding: 25px 30px;
     height: 100%;
     display: block;
-    background-color: #333;
+    background-color: #dadada;
     -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -385,7 +374,7 @@ body.on-side{
 
 .side .close-side{
     float: right;
-    color: #fff;
+    color: #00008c;
     position: relative;
     z-index: 2;
     font-size: 16px;
@@ -398,7 +387,7 @@ body.on-side{
 }
 
 .side .widget .title{
-    color: #fff;
+    color: #00008c;
     margin-bottom: 15px;
 }
 
@@ -406,10 +395,11 @@ body.on-side{
     padding: 0;
     margin: 0;
     list-style: none;
+    
 }
 
 .side .widget ul.link li a{
-    color: #9f9f9f;
+    color: #000000;
     letter-spacing: 1px;
 }
 
@@ -544,9 +534,9 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
         border-radius: 0px;
         padding: 0;
         width: 200px;
-        background: #fff;
-        border: solid 1px #e0e0e0;
-        border-top: solid 5px;
+        background: #ffffff;
+        border: solid 0px #e0e0e0;
+        border-top: solid 3px #00008c;
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a:hover,
@@ -555,8 +545,8 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
-        padding: 10px 15px;
-        border-bottom: solid 1px #eee;
+        padding: 5px 20px;
+        
         color: #6f6f6f;
     }
     
@@ -565,7 +555,7 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     }
     
     nav.navbar.bootsnav ul.navbar-right li.dropdown ul.dropdown-menu li a{
-        text-align: right;
+        text-align: left;
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu li.dropdown > a.dropdown-toggle:before{
@@ -646,6 +636,7 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     nav.navbar.bootsnav.navbar-transparent .attr-nav{
         padding-left: 15px;
         margin-left: 30px;
+        
     }
     
     nav.navbar.bootsnav.navbar-transparent.white{
@@ -786,6 +777,7 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     
     nav.bootsnav.brand-center ul.nav > li.dropdown > ul.dropdown-menu{
         margin-top: 2px;
+        
     }
     
     nav.bootsnav.brand-center ul.nav > li.dropdown.megamenu-fw > ul.dropdown-menu{

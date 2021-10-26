@@ -12,7 +12,7 @@
     
 <title>Laundromat</title>
 
-	<link rel="icon" type="image/png" href="assets/images/favicon.png">
+	<link rel="icon" type="image/png" href="assets/images/favicon11.png">
 
     <!--Google Font link-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -22,7 +22,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    
     
     
     <!-- Default stylesheets-->
@@ -57,7 +56,7 @@
     <script src="assets/js/main.js"></script>
     
     
-	<!-- JS includes -->
+	<!-- JS includes :rage-->
 	<script src="assets/rage/assets/js/slick.min.js"></script>
 	<script src="assets/rage/assets/js/bootsnav.js"></script>
 
@@ -67,12 +66,6 @@
 	<link rel="stylesheet" href="assets/rage/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/rage/assets/css/bootsnav.css">
 	
-
-
-
-
-	<!--For Plugins external css-->
-	<!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
 
 	<!--Theme custom css -->
 	<link rel="stylesheet" href="assets/rage/assets/css/style.css">
@@ -90,7 +83,7 @@
 	<main>
 
       	<!-- 네브바 -->
-      
+     
 		<nav class="navbar navbar-light navbar-expand-lg navbar-fixed white no-background bootsnav">
 			<!-- Start Top Search -->
 			<div class="top-search">
@@ -106,36 +99,11 @@
 
 			<div class="container">
 				<!-- Start Atribute Navigation -->
-				<div class="attr-nav">
+				<div class="attr-nav mt-1">
 					<ul>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-shopping-bag"></i>
-                                    <span class="badge">3</span>
-                                </a>
-							<ul class="dropdown-menu cart-list">
-								<li>
-									<a href="#" class="photo"><img src="assets/rage/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-									<h6><a href="#">Delica omtantur </a></h6>
-									<p class="m-top-10">2x - <span class="price">$99.99</span></p>
-								</li>
-								<li>
-									<a href="#" class="photo"><img src="assets/rage/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-									<h6><a href="#">Delica omtantur </a></h6>
-									<p class="m-top-10">2x - <span class="price">$99.99</span></p>
-								</li>
-								<li>
-									<a href="#" class="photo"><img src="assets/rage/assets/images/thumb01.jpg" class="cart-thumb" alt="" /></a>
-									<h6><a href="#">Delica omtantur </a></h6>
-									<p class="m-top-10">2x - <span class="price">$99.99</span></p>
-								</li>
-								<!---- More List ---->
-								<li class="total">
-									<span class="pull-right"><strong>Total</strong>: $0.00</span>
-									<a href="#" class="btn btn-cart">Cart</a>
-								</li>
-							</ul>
-						</li>
+						<li class="button"><a href="#"><i class="fa fa-user-circle"></i></a></li>
+						<li class="button"><a href="#"> <i class="fa fa-shopping-bag"></i>
+   						 <span class="badge bg-primary">3</span> </a></li>	
 						<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
 						<li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
 					</ul>
@@ -144,31 +112,39 @@
 
 				<!-- Start Header Navigation -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-
 					<a class="navbar-brand" href="#brand">
-
-                            <img src="assets/images/logo_transparent1.png" class="logo logo-display" alt="로고">
-                            <img src="assets/images/logo_transparent1.png" class="logo logo-scrolled" alt="로고">
-
-                        </a>
+                            <img src="assets/images/logo_transparent123.png" class="logo logo-display" alt="로고">
+                            <img src="assets/images/logo_transparent123.png" class="logo logo-scrolled " alt="로고">
+                    </a>
 				</div>
 				<!-- End Header Navigation -->
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-						<li><a href="#hello">Hello</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#service">Services</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#pricing">Pricing</a></li>
-						<li><a href="#blog">Blog</a></li>
-						<li><a href="#contact">Contact</a></li>
+				<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+					
+				<li class="nav-item dropdown">
+				<a class="nav-link" id="navbarDropdown" href="#"
+				role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Shop</a>
+				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="#">Subscription</a></li>
+					<li><a class="dropdown-item" href="#">Bedding Shop</a></li>
+					<li><a class="dropdown-item" href="#">Event</a></li>
+				</ul></li>
+				
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+				role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				About</a>
+				<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="#">Brand Story</a></li>
+					<li><a class="dropdown-item" href="#">blog</a></li>
+					<li><a class="dropdown-item" href="#">review</a></li>
+					<li><a class="dropdown-item" href="#">Q&A</a></li>
+					<li><a class="dropdown-item" href="#">Notice</a></li>
+				</ul></li>
+			
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
