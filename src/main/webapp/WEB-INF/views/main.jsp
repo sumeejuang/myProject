@@ -12,7 +12,8 @@
                   <div class="font-alt mb-40 titan-title-size-4">
                   당신의 침구,<br/>
                   세탁한지 얼마나 되었나요?</div>
-                  <a class="section-scroll btn btn-border-w btn-round-lg" href="#">
+                  <a class="section-scroll btn btn-border-w btn-round btn-lg" 
+                  href="subslist">
                   SUBSCRIPTION 시작하기</a>
                 </div>
               </div>
@@ -23,7 +24,8 @@
                   <div class="font-alt mb-30 titan-title-size-1">런드로맷 침구샵</div>
                   <div class="font-alt mb-30 titan-title-size-4"> WINTER 2021</div>
                   <div class="font-alt mb-40 titan-title-size-1">Your online COMFORTHERS destination</div>
-                  <a class="section-scroll btn btn-border-w btn-round" href="#">BEDDING SHOP 구매하기</a>
+                  <a class="section-scroll btn btn-border-w btn-round btn-lg" 
+                  href="beddinglist">BEDDING SHOP 구매하기</a>
                 </div>
               </div>
             </li>
@@ -31,8 +33,9 @@
               <div class="titan-caption">
                 <div class="caption-content">
                   <div class="font-alt mb-30 titan-title-size-1">런드로맷의 발견</div>
-                  <div class="font-alt mb-40 titan-title-size-4">Brand Story</div>
-                  <a class="section-scroll btn btn-border-w btn-round" href="#">Learn More 더알아보기</a>
+                  <div class="font-alt mb-40 titan-title-size-4">Bedding Story</div>
+                  <a class="section-scroll btn btn-border-w btn-round btn-lg" 
+                  href="bloglist"> Learn More 더알아보기</a>
                 </div>
               </div>
             </li>
@@ -41,6 +44,70 @@
       </section>
       <div class="main">
 
+	       <section class="module-small">
+          <div class="container"></div>
+        </section>
+        
+        	<hr class="divider-w">
+        
+		<div class="container">
+		  <div class="row">
+		    <div class="col-md-5 pull-left"><img src="resources/titan/images/shop/product-1.jpg" alt="Title of Image"></div>
+		    <div class="col-md-5 mt-10 ml-auto">
+		    
+		    <div class="pr-12 work-details">
+                  <h5 class="work-details-title font-alt"><strong>Project Details</strong></h5>
+                  <p>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: </p>
+		    	<ul>
+                    <li><strong>Client: </strong><span class="font-serif"><a href="#" target="_blank">SomeCompany</a></span>
+                    </li>
+                    <li><strong>Date: </strong><span class="font-serif"><a href="#" target="_blank">23 November, 2015</a></span>
+                    </li>
+                    <li><strong>Online: </strong><span class="font-serif"><a href="#" target="_blank">www.example.com</a></span>
+                    </li>
+                  </ul>
+			</div>
+		  </div>
+		  </div>
+		  </div>
+		  
+		  
+		    <section class="module-small">
+          <div class="container"></div>
+        </section>
+		  
+		  <div class="container">
+		  <div class="row">
+		  	<div class="work-details ml-2">
+                  <h5 class="work-details-title font-alt"><strong>Project Details</strong></h5>
+                  <p>The languages only differ in their grammar, their pronunciation</p>
+		    	<ul>
+                    <li><strong>Client: </strong><span class="font-serif"><a href="#" target="_blank">SomeCompany</a></span>
+                    </li>
+                    <li><strong>Date: </strong><span class="font-serif"><a href="#" target="_blank">23 November, 2015</a></span>
+                    </li>
+                    <li><strong>Online: </strong><span class="font-serif"><a href="#" target="_blank">www.example.com</a></span>
+                    </li>
+                  </ul>
+			</div>
+			
+		    
+		    <div class="col-md-7 ml-4 offset"><img src="resources/titan/images/shop/product-1.jpg" alt="Title of Image"></div>
+		    <div class="col-md-5 mt-10 ml-auto offset">
+		  </div>
+		  
+		</div>
+		
+		<section class="module-small">
+          <div class="container"></div>
+        </section>
+        
+		</div>
+        
+        
+        
+        
+        
         <section class="module-small">
           <div class="container">
             

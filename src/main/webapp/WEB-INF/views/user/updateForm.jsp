@@ -4,12 +4,11 @@
 <section class="module-small bg-dark-1"
 	data-background="assets/images/subs/head01.jpg"></section>
 <div class="main">
-
 	<section class="module">
 		<div class="container mb-50">
 			<div class="row">
 				<div class="col-10" style="float: none; margin: 0 auto;">
-					<h4 class="font-alt">Register</h4>
+					<h4 class="font-alt">Update</h4>
 					<hr class="divider-w mb-10">
 					<br />
 					<form class="form">
@@ -17,13 +16,10 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="useremail" type="text"
-										name="useremail" placeholder="이메일(ID)" />
+										name="useremail" placeholder="이메일(ID)" readonly="readonly" />
 								</div>
 							</div>
-							<div class="col">
-								<button type="button" class="btn btn-d btn-round btn-sm">
-									CHECK</button>
-							</div>
+							<div class="col"></div>
 							<div class="col"></div>
 						</div>
 						<div class="row">
@@ -67,16 +63,15 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="postcode" type="text"
-										name="postcode" placeholder="우편번호" readonly="readonly"/>
+										name="postcode" placeholder="우편번호" />
 								</div>
 							</div>
 							<div class="col">
-								<button type="button" class="btn btn-d btn-round btn-sm"
+								<button type="button" class="btn btn-g btn-round btn-sm"
 									onclick="execDaumPostcode()">FIND</button>
 							</div>
 							<div class="col"></div>
 						</div>
-
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
@@ -100,21 +95,20 @@
 						</div>
 						<br />
 						<hr class="divider-w mb-10">
-
 						<div class="row">
-							<div class="col-11">
+							<div class="col-12">
 								<input type="button"
-									class="btn btn btn-lg btn-round btn-primary float-right"
-									value="Register">
+									class="btn btn-danger btn-round float-right" value="UnRegister">
+								<input type="button" class="btn btn btn-d btn-round float-right"
+									value="Update">
 							</div>
 						</div>
-					</form>
+				</form>
 				</div>
 			</div>
 		</div>
-	</section>
+</section>
 </div>
-
 
 
 <script>
@@ -166,64 +160,6 @@
 			}
 		}).open();
 	}
-
-	$("#btnJoin").click(function() {
-		if ($("#useremail").val() == "") {
-			alert("이메일(ID) 입력하세요")
-			$("#useremail").focus()
-			return false;
-		}
-		if ($("#userpasswd").val() == "") {
-			alert("비밀번호를 입력하세요")
-			$("#userpasswd").focus()
-			return false;
-		}
-		if ($("#username").val() == "") {
-			alert("이름을 입력하세요")
-			$("#username").focus()
-			return false;
-		}
-		if ($("#userphone").val() == "") {
-			alert("전화번호를 입력하세요")
-			$("#userphone").focus()
-			return false;
-		}
-		if ($("#postcode").val() == "") {
-			alert("우편번호를 입력하세요")
-			$("#username").focus()
-			return false;
-		}
-		if ($("#detailAddress").val() == "") {
-			alert("상세주소를 입력하세요")
-			$("#username").focus()
-			return false;
-		}
-		
-		//////////////
-
-		var data = {
-			"username" : $("#username").val(),
-			"password" : $("#password").val(),
-			"email" : $("#email").val()
-		}
-		$.ajax({
-			type : "POST",
-			url : "/register",
-			contentType : "application/json;charset=utf-8",
-			data : JSON.stringify(data)
-		}).done(function(resp) {
-			if (resp == "success") {
-				alert("회원가입 성공")
-				location.href = "/login"
-			} else if (resp == "fail") {
-				alert("아이디 중복확인")
-				$("#username").val("");
-			}
-		}).fail(function() {
-			alert("회원가입 실패")
-		})
-	})
 </script>
-
 
 <%@ include file="../layout/footer.jsp"%>

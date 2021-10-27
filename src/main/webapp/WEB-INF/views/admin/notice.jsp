@@ -33,40 +33,32 @@
 						</thead>
 						<tbody>
 							<tr>
-								<th>샤넬</th>
-								<th>30</th>
-								<th>4.5</th>
-								<th>342</th>
-								<th>2011.01.12</th>
+								<th>001</th>
+								<th>공지01</th>
+								<th>admin01</th>
+								<th>블라블라</th>
+								<th>img01</th>
+								<th>2021-10-25</th>
+								<th>1</th>
+								<th>
+								<button type="button" class="btn btn-outline-warning btn-sm">수정</button><br/>
+								<button type="button" class="btn btn-outline-danger btn-sm">삭제</button>
+								</th>
 							</tr>
 							<tr>
-								<th>샤넬</th>
-								<th>30</th>
-								<th>4.5</th>
-								<th>342</th>
-								<th>2011.01.12</th>
+								<th>002</th>
+								<th>공지02</th>
+								<th>admin02</th>
+								<th>블라블라</th>
+								<th>img02</th>
+								<th>2021-10-25</th>
+								<th>1</th>
+								<th>
+								<button type="button" class="btn btn-outline-warning btn-sm">수정</button><br/>
+								<button type="button" class="btn btn-outline-danger btn-sm">삭제</button>
+								</th>
 							</tr>
-							<tr>
-								<th>샤넬</th>
-								<th>30</th>
-								<th>4.5</th>
-								<th>342</th>
-								<th>2011.01.12</th>
-							</tr>
-							<tr>
-								<th>샤넬</th>
-								<th>30</th>
-								<th>4.5</th>
-								<th>342</th>
-								<th>2011.01.12</th>
-							</tr>
-							<tr>
-								<th>샤넬</th>
-								<th>30</th>
-								<th>4.5</th>
-								<th>342</th>
-								<th>2011.01.12</th>
-							</tr>
+							
 						</tbody>
 					</table>
 				</div>
