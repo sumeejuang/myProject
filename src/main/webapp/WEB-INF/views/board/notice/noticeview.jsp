@@ -39,8 +39,11 @@
                     <hr class="divider-w mb-10"><br/>
                     <div class="row">
 							<div class="col-12">
+							<input type="button"
+									class="btn btn-g btn-round float-right btn-sm" value="list"> 
+									
 								<input type="button"
-									class="btn btn-g btn-round float-right btn-sm" value="UnRegister"> 
+									class="btn btn-g btn-round float-right btn-sm" value="Delete"> 
 									
 								<input type="button" class="btn btn btn-g btn-round float-right btn-sm"
 									value="Update">

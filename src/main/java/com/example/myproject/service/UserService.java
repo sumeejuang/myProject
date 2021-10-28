@@ -40,16 +40,16 @@ public class UserService {
 		return userRepository.count(); 
 	}
 	
-	//수정폼
+	//수정폼,마이페이지폼
 	public User findById(Long usercode) { 
 		return userRepository.findById(usercode).get(); 
 	}
 	
 	//수정
 	@Transactional 
-	public void update(User data) { 
+	public void update(User data) { 	
 		User user = userRepository.findById(data.getUsercode()).get();
-		user.setUserpasswd(data.getUserpasswd());
+		user.setUserpasswd(encoder.encode(data.getUserpasswd()));
 		user.setUserphone(data.getUserphone());
 		user.setPostcode(data.getPostcode());
 		user.setAddress(data.getAddress());

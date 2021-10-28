@@ -12,7 +12,7 @@
                 <h4 class="font-alt">Login</h4>
                 <hr class="divider-w mb-10"><br/>
             
-                <form class="form">
+                <form class="form" action="/loginProc" method="post">
                   <div class="form-group">
                     <input class="form-control" id="username" type="text" name="username" 
                     placeholder="Username"/>

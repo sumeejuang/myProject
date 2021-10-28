@@ -1,8 +1,7 @@
             <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -83,6 +82,12 @@
 	<script src="/assets/rage/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
       
   </head>
+  
+  <sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal"/> <!-- 기본값principal var로 변수에 담아줌 /닫는기호중요 -->
+</sec:authorize>
+
+
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
 	<main>
       	<!-- 네브바 --> 
@@ -103,8 +108,13 @@
 				<!-- Start Atribute Navigation -->
 				<div class="attr-nav mt-1">
 					<ul>
-						<li class="button"><a href="loginForm"><i class="fa fa-user-circle"></i></a></li>
-						<li class="button"><a href="cart"> <i class="fa fa-shopping-bag"></i>
+					<sec:authorize access="isAnonymous()">
+						<li class="button"><a href="../loginForm"><i class="fa fa-user-circle"></i></a></li>
+					</sec:authorize>
+					 <sec:authorize access="isAuthenticated()">
+					 <li class="button"><a href="../mypage/${principal.user.usercode }"><i class="fa fa-user-circle"></i></a></li>
+					 </sec:authorize>	
+						<li class="button"><a href="../cart"> <i class="fa fa-shopping-bag"></i>
    						 <span class="badge bg-primary">3</span> </a></li>	
 						<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
 						<li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
@@ -114,7 +124,7 @@
 
 				<!-- Start Header Navigation -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="main">
+					<a class="navbar-brand" href="../main">
                        <img src="/assets/images/logo_transparent123.png" class="logo logo-display" 
                        alt="로고">
                        <img src="/assets/images/logo_transparent123.png" class="logo logo-scrolled " 
@@ -131,20 +141,20 @@
 				role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Shop</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="subslist">Subscription</a></li>
-					<li><a class="dropdown-item" href="beddinglist">Bedding Shop</a></li>
-					<li><a class="dropdown-item" href="eventlist">Event</a></li>
+					<li><a class="dropdown-item" href="../subslist">Subscription</a></li>
+					<li><a class="dropdown-item" href="../beddinglist">Bedding Shop</a></li>
+					<li><a class="dropdown-item" href="../eventlist">Event</a></li>
 				</ul></li>				
 				<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 				role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				About</a>
 				<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="brandstory">Brand Story</a></li>
-					<li><a class="dropdown-item" href="bloglist">Blog</a></li>
-					<li><a class="dropdown-item" href="reviewlist">Review</a></li>
-					<li><a class="dropdown-item" href="qna">Q&A</a></li>
-					<li><a class="dropdown-item" href="noticelist">Notice</a></li>
+					<li><a class="dropdown-item" href="../brandstory">Brand Story</a></li>
+					<li><a class="dropdown-item" href="../bloglist">Blog</a></li>
+					<li><a class="dropdown-item" href="../reviewlist">Review</a></li>
+					<li><a class="dropdown-item" href="../qna">Q&A</a></li>
+					<li><a class="dropdown-item" href="../noticelist">Notice</a></li>
 				</ul></li>
 			
 					</ul>
@@ -159,28 +169,50 @@
 				<div class="widget">
 					<h6 class="title">Shop</h6>
 					<ul class="link">
-						<li><a href="subslist">Subscription 정기구독</a></li>
-						<li><a href="beddinglist">Bedding Shop 침구샵</a></li>
-						<li><a href="eventlist">Event 이벤트</a></li>
+						<li><a href="../subslist">Subscription 정기구독</a></li>
+						<li><a href="../beddinglist">Bedding Shop 침구샵</a></li>
+						<li><a href="../eventlist">Event 이벤트</a></li>
 					</ul>
 				</div>
 				<div class="widget">
 					<h6 class="title">About</h6>
 					<ul class="link">
-						<li><a href="brandstory">Brand Story 런드로맷</a></li>
-						<li><a href="bloglist">Blog 침구의재발견</a></li>
-						<li><a href="reviewlist">Review 후기</a></li>
-						<li><a href="qna">Q&A 문의사항</a></li>
-						<li><a href="noticelist">Notice 공지</a></li><br/>
+						<li><a href="../brandstory">Brand Story 런드로맷</a></li>
+						<li><a href="../bloglist">Blog 침구의재발견</a></li>
+						<li><a href="../reviewlist">Review 후기</a></li>
+						<li><a href="../qna">Q&A 문의사항</a></li>
+						<li><a href="../noticelist">Notice 공지</a></li><br/>
 					</ul>
 				</div>
 				<div class="widget">
 					<h6 class="title"></h6>
 					<ul class="link">
-					<li><a href="loginForm"><i class="fa fa-unlock-alt" aria-hidden="true"></i></i>
+					<sec:authorize access="isAnonymous()"> <!-- 누구나-->
+					<li><a href="../loginForm"><i class="fa fa-unlock-alt" aria-hidden="true"></i></i>
 					로그인</a> &nbsp;&nbsp; | &nbsp;&nbsp;
-					<a href="joinForm"> <i class="fa fa-user" aria-hidden="true"></i> 
+					<a href="../joinForm"> <i class="fa fa-user" aria-hidden="true"></i> 
 					회원가입</a></li>
+					</sec:authorize>
+					 <sec:authorize access="isAuthenticated()"><!-- 권한0 -->
+					 <c:if test="${principal.user.userrole == 'ROLE_USER' }">
+					 <li><a href="../updateForm/${principal.user.usercode }"><i class="fa fa-address-card-o" aria-hidden="true"></i>
+					회원정보수정</a> &nbsp;&nbsp; 
+					 &nbsp;&nbsp;
+					<li><a href="../logout"><i class="fa fa-sign-out" aria-hidden="true"></i>
+					로그아웃</a><br/>
+					| &nbsp;&nbsp;
+					<Strong> ${principal.user.name }</Strong>  님 환영합니다.</a></li>
+					</c:if>
+					<c:if test="${principal.user.userrole =='ROLE_ADMIN' }">
+					 <li><a href="../admin"><i class="fa fa-commenting-o" aria-hidden="true"></i>
+					관리자페이지</a> &nbsp;&nbsp; 
+					 &nbsp;&nbsp;
+					<li><a href="../logout"><i class="fa fa-sign-out" aria-hidden="true"></i>
+					로그아웃</a><br/>
+					| &nbsp;&nbsp;
+					<Strong> ${principal.user.name }</Strong>  님 환영합니다.</a></li>
+					</c:if>
+					 </sec:authorize>
 					</ul>
 				</div>
 			</div>

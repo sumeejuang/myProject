@@ -8,7 +8,7 @@
 		<div class="container mb-50">
 			<div class="row">
 				<div class="col-10" style="float: none; margin: 0 auto;">
-					<h4 class="font-alt">" ${list.name } " 's Update</h4>
+					<h4 class="font-alt">" <strong>${list.name }</strong> " 님의 Update</h4>
 					<hr class="divider-w mb-10">
 					<br />
 					<form class="form">
@@ -90,13 +90,13 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="detailAddress" type="text"
-										name="detailAddress" value="${list.detailaddress}" />
+									<input class="form-control" id="detailaddress" type="text"
+										name="detailaddress" value="${list.detailaddress}" />
 								</div>
 							</div>
 							<div class="col-5">
-								<input class="form-control" id="extraAddress" type="text"
-									name="extraAddress" value="${list.extraaddress}" readonly="readonly" />
+								<input class="form-control" id="extraaddress" type="text"
+									name="extraaddress" value="${list.extraaddress}" readonly="readonly" />
 							</div>
 						</div>
 						<br />
@@ -144,7 +144,7 @@ $("#btnUserUpdate").click(function(){
 		success: function(resp){
 			if(resp=="success"){
 				alert("수정성공")
-				location.href="/main"//회원일경우 
+				location.href="/mypage/${list.usercode}"//회원일경우 
 			}
 		},
 		error: function(request, status, error){
@@ -159,13 +159,11 @@ $("#btnUserDelete").click(function(){
 	if(!confirm('정말 삭제할까요?')) return false; //취소면 끝내고 아니면 아래작업
 		$.ajax({
 			type:"DELETE",
-			url:"delete/${list.usercode}",
+			url:"../delete/${list.usercode}",
 			success:function(resp){
 				if(resp=="success"){
 					alert("회원삭제성공");
 					location.href="/main"//회원일경우 
-						
-						//관리자일경우
 						
 				}
 			},
@@ -174,6 +172,7 @@ $("#btnUserDelete").click(function(){
 			}
 		})
 })
+
 	function execDaumPostcode() {
 		new daum.Postcode({
 			oncomplete : function(data) {
@@ -208,17 +207,17 @@ $("#btnUserDelete").click(function(){
 						extraAddr = ' (' + extraAddr + ')';
 					}
 					// 조합된 참고항목을 해당 필드에 넣는다.
-					document.getElementById("extraAddress").value = extraAddr;
+					document.getElementById("extraaddress").value = extraAddr;
 
 				} else {
-					document.getElementById("extraAddress").value = '';
+					document.getElementById("extraaddress").value = '';
 				}
 
 				// 우편번호와 주소 정보를 해당 필드에 넣는다.
 				document.getElementById('postcode').value = data.zonecode;
 				document.getElementById("address").value = addr;
 				// 커서를 상세주소 필드로 이동한다.
-				document.getElementById("detailAddress").focus();
+				document.getElementById("detailaddress").focus();
 			}
 		}).open();
 	}

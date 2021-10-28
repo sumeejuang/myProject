@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.myproject.model.User;
@@ -36,6 +37,17 @@ public class PageControllerTest {
 		return "/user/joinForm";
 	}
 	
+	//아이디체크
+	@GetMapping("idck")
+	@ResponseBody //문자열
+	public String idck(@RequestParam User user) {
+		if(userrepository.findByUsername(user.getUsername())!=null) {
+		return "fail";
+		} else {
+			return "success";
+		}
+	}
+	
 	//가입
 	@PostMapping("register")
 	@ResponseBody //문자열
@@ -47,6 +59,11 @@ public class PageControllerTest {
 		return "success";
 	}
 	//정보보기(마이페이지)
+	@GetMapping("mypage/{usercode}")
+	public String mypage(@PathVariable Long usercode, Model model) {	
+		model.addAttribute("list",userservice.findById(usercode)); 
+		return "/user/mypage";
+	}
 	
 	
 	//수정폼(로그인한회원,관리자)

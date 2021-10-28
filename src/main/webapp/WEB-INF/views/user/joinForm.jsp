@@ -21,7 +21,7 @@
 								</div>
 							</div>
 							<div class="col">
-								<button type="button" class="btn btn-d btn-round btn-sm">
+								<button type="button" id="btnidck" class="btn btn-d btn-round btn-sm">
 									CHECK</button>
 							</div>
 							<div class="col"></div>
@@ -30,17 +30,17 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="userpasswd" type="password"
-										name="userpasswd" placeholder="비밀번호" />
+										name="userpasswd" placeholder="비밀번호" onchange="pwck()" />
 								</div>
 							</div>
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="userpasswdCK" type="password"
-										name="userpasswdCK" placeholder="비밀번호확인" />
+										name="userpasswdCK" placeholder="비밀번호확인" onchange="pwck()"/>
 								</div>
 							</div>
 							<div class="col">
-								<div id="check">비밀번호 일치</div>
+								<div id="check"></div>
 							</div>
 						</div>
 						<div class="row">
@@ -118,7 +118,8 @@
 
 
 
-<script>
+<script type="text/javascript">
+//주소
 	function execDaumPostcode() {
 		new daum.Postcode({
 			oncomplete : function(data) {
@@ -168,6 +169,7 @@
 		}).open();
 	}
 
+	//회원가입
 	$("#btnJoin").click(function() {
 		if ($("#username").val() == "") {
 			alert("이메일(ID) 입력하세요")
@@ -226,7 +228,49 @@
 		}).fail(function() {
 			alert("회원가입 실패")
 		})
-	})
+	});
+
+	//아이디체크
+	$("#btnidck").click(function() {
+		if ($("#username").val() == "") {
+			alert("이메일(ID) 입력하세요")
+			$("#username").focus()
+			return false;
+		}
+		var username =$("#username").val();
+		$.ajax({
+			type : "GET",
+			url : "/idck?username="+username,
+			contentType : "application/json;charset=utf-8"
+		}).done(function(resp) {
+			if (resp == "success") {
+				alert("아이디 사용가능")
+			} else if (resp == "fail") {
+				alert("아이디중복 사용불가")
+				$("#username").val("");
+				$("#username").focus;
+			}
+		}).fail(function(e) {
+			alert("에러")
+		})
+	});
+	
+	//비번체크
+	 function pwck() {
+      var p1 = document.getElementById('userpasswd').value;
+      var p2 = document.getElementById('userpasswdCK').value;
+      if( p1 != p2 ) {
+    	  document.getElementById('check').innerHTML='비밀번호 불일치'
+    	document.getElementById('check').style.color='red';
+        
+      } else{
+    	  document.getElementById('check').innerHTML='비밀번호 일치'
+    	document.getElementById('check').style.color='green';
+       
+      }
+
+    }
+	
 </script>
 
 
