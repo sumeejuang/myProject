@@ -16,8 +16,8 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="useremail" type="text"
-										name="useremail" placeholder="이메일(ID)" />
+									<input class="form-control" id="username" type="email"
+										name="username" placeholder="이메일(ID)" />
 								</div>
 							</div>
 							<div class="col">
@@ -29,13 +29,13 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="userpasswd" type="text"
+									<input class="form-control" id="userpasswd" type="password"
 										name="userpasswd" placeholder="비밀번호" />
 								</div>
 							</div>
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="userpasswdCK" type="text"
+									<input class="form-control" id="userpasswdCK" type="password"
 										name="userpasswdCK" placeholder="비밀번호확인" />
 								</div>
 							</div>
@@ -46,8 +46,8 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="username" type="text"
-										name="username" placeholder="이름" />
+									<input class="form-control" id="name" type="text"
+										name="name" placeholder="이름" />
 								</div>
 							</div>
 							<div class="col"></div>
@@ -89,13 +89,13 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="detailAddress" type="text"
-										name="detailAddress" placeholder="상세주소" />
+									<input class="form-control" id="detailaddress" type="text"
+										name="detailaddress" placeholder="상세주소" />
 								</div>
 							</div>
 							<div class="col-5">
-								<input class="form-control" id="extraAddress" type="text"
-									name="extraAddress" placeholder="주소참조" readonly="readonly" />
+								<input class="form-control" id="extraaddress" type="text"
+									name="extraaddress" placeholder="주소참조" readonly="readonly" />
 							</div>
 						</div>
 						<br />
@@ -105,6 +105,7 @@
 							<div class="col-11">
 								<input type="button"
 									class="btn btn btn-lg btn-round btn-primary float-right"
+									id="btnJoin"
 									value="Register">
 							</div>
 						</div>
@@ -152,25 +153,25 @@
 						extraAddr = ' (' + extraAddr + ')';
 					}
 					// 조합된 참고항목을 해당 필드에 넣는다.
-					document.getElementById("extraAddress").value = extraAddr;
+					document.getElementById("extraaddress").value = extraAddr;
 
 				} else {
-					document.getElementById("extraAddress").value = '';
+					document.getElementById("extraaddress").value = '';
 				}
 
 				// 우편번호와 주소 정보를 해당 필드에 넣는다.
 				document.getElementById('postcode').value = data.zonecode;
 				document.getElementById("address").value = addr;
 				// 커서를 상세주소 필드로 이동한다.
-				document.getElementById("detailAddress").focus();
+				document.getElementById("detailaddress").focus();
 			}
 		}).open();
 	}
 
 	$("#btnJoin").click(function() {
-		if ($("#useremail").val() == "") {
+		if ($("#username").val() == "") {
 			alert("이메일(ID) 입력하세요")
-			$("#useremail").focus()
+			$("#username").focus()
 			return false;
 		}
 		if ($("#userpasswd").val() == "") {
@@ -178,9 +179,9 @@
 			$("#userpasswd").focus()
 			return false;
 		}
-		if ($("#username").val() == "") {
+		if ($("#name").val() == "") {
 			alert("이름을 입력하세요")
-			$("#username").focus()
+			$("#name").focus()
 			return false;
 		}
 		if ($("#userphone").val() == "") {
@@ -190,21 +191,24 @@
 		}
 		if ($("#postcode").val() == "") {
 			alert("우편번호를 입력하세요")
-			$("#username").focus()
+			$("#postcode").focus()
 			return false;
 		}
-		if ($("#detailAddress").val() == "") {
+		if ($("#detailaddres").val() == "") {
 			alert("상세주소를 입력하세요")
-			$("#username").focus()
+			$("#detailaddres").focus()
 			return false;
 		}
 		
-		//////////////
-
 		var data = {
 			"username" : $("#username").val(),
-			"password" : $("#password").val(),
-			"email" : $("#email").val()
+			"userpasswd" : $("#userpasswd").val(),
+			"name" : $("#name").val(),
+			"userphone" : $("#userphone").val(),
+			"postcode" : $("#postcode").val(),
+			"address" : $("#address").val(),
+			"detailaddress" : $("#detailaddress").val(),
+			"extraaddress" : $("#extraaddress").val()
 		}
 		$.ajax({
 			type : "POST",
@@ -214,7 +218,7 @@
 		}).done(function(resp) {
 			if (resp == "success") {
 				alert("회원가입 성공")
-				location.href = "/login"
+				location.href = "/loginForm"
 			} else if (resp == "fail") {
 				alert("아이디 중복확인")
 				$("#username").val("");

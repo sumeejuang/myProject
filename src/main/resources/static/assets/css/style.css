@@ -821,7 +821,6 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;
@@ -897,7 +896,6 @@ blockquote {
 
 .font-alt {
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -1252,7 +1250,6 @@ General Styles - Owlcarousel
   border-radius: 0;
   z-index: 1000;
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 11px;
   transition: background, padding 0.4s ease-in-out 0s;

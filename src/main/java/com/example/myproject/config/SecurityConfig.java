@@ -21,12 +21,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{ //1.상속(환
 		//7.http나열
 		http.csrf().disable(); //포스트맵핑자동적용위함 토큰값설정필요없음
 		http.authorizeRequests() //권한요구(권한찾기)
-			.antMatchers("/user/*").authenticated() //유형찾아서 요구 (user를 타고오는 패턴)빼고는 
+			//.antMatchers("/user/*").authenticated() //유형찾아서 요구 (user를 타고오는 패턴)빼고는 
 			.anyRequest() //나머지는
 			.permitAll() //모두 허용(시큐리티 로그인창에 걸리지않고 컨트롤러getmapping한 home으로)
 			.and()
 				.formLogin() //폼로그인
-				.loginPage("/login") //로그인페이지 설정
+				.loginPage("/loginForm") //로그인페이지 설정
 				.loginProcessingUrl("/loginProc")  //action이름 설정
 				.defaultSuccessUrl("/") //성공하면 가는 루트
 			.and()

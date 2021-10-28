@@ -12,6 +12,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,17 +26,18 @@ public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long usercode;
 	@Column(nullable=false) //컬럼선언 후 null값이면 안됨 (Not Null) =기본값true null허용
-	private String useremail;
-	private String username;
+	private String username; //이메일=아이디
+	@Column(nullable=false) 
 	private String userpasswd;
+	private String name;
 	private String userphone;
 	private String postcode;
 	private String address;
-	private String detailAddress;
-	private String extraAddress;
-	@CreationTimestamp 
-	@Temporal(TemporalType.TIMESTAMP) 
-	@Column(name="userregdate") 
+	private String detailaddress;
+	private String extraaddress;
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date userregdate;
 	private String userrole;
 

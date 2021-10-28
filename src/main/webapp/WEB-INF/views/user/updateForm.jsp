@@ -2,21 +2,27 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 <section class="module-small bg-dark-1"
-	data-background="assets/images/subs/head01.jpg"></section>
+	data-background="/assets/images/subs/head01.jpg"></section>
 <div class="main">
 	<section class="module">
 		<div class="container mb-50">
 			<div class="row">
 				<div class="col-10" style="float: none; margin: 0 auto;">
-					<h4 class="font-alt">Update</h4>
+					<h4 class="font-alt">" ${list.name } " 's Update</h4>
 					<hr class="divider-w mb-10">
 					<br />
 					<form class="form">
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="useremail" type="text"
-										name="useremail" placeholder="이메일(ID)" readonly="readonly" />
+									<input class="form-control" id="usercode" type="hidden"
+										name="usercode" value="${list.usercode}" />
+										<input class="form-control" id="userregdate" type="hidden"
+										name="userregdate" value="${list.userregdate}" />
+										<input class="form-control" id="userrole" type="hidden"
+										name="userrole" value="${list.userrole}" />
+									<input class="form-control" id="username" type="text"
+										name="username" value="${list.username}" readonly="readonly" />
 								</div>
 							</div>
 							<div class="col"></div>
@@ -25,13 +31,13 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="userpasswd" type="text"
+									<input class="form-control" id="userpasswd" type="password"
 										name="userpasswd" placeholder="비밀번호" />
 								</div>
 							</div>
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="userpasswdCK" type="text"
+									<input class="form-control" id="userpasswdCK" type="password"
 										name="userpasswdCK" placeholder="비밀번호확인" />
 								</div>
 							</div>
@@ -42,8 +48,8 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<input class="form-control" id="username" type="text"
-										name="username" placeholder="이름" />
+									<input class="form-control" id="name" type="text"
+										name="name" value="${list.name}" readonly="readonly"/>
 								</div>
 							</div>
 							<div class="col"></div>
@@ -53,7 +59,7 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="userphone" type="text"
-										name="userphone" placeholder="전화번호" />
+										name="userphone" value="${list.userphone}" />
 								</div>
 							</div>
 							<div class="col"></div>
@@ -63,11 +69,11 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="postcode" type="text"
-										name="postcode" placeholder="우편번호" />
+										name="postcode" value="${list.postcode}" readonly="readonly" />
 								</div>
 							</div>
 							<div class="col">
-								<button type="button" class="btn btn-g btn-round btn-sm"
+								<button type="button" class="btn btn-d btn-round btn-sm"
 									onclick="execDaumPostcode()">FIND</button>
 							</div>
 							<div class="col"></div>
@@ -76,7 +82,7 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="address" type="text"
-										name="address" placeholder="주소" readonly="readonly" />
+										name="address" value="${list.address}" readonly="readonly" />
 								</div>
 							</div>
 							<div class="col"></div>
@@ -85,12 +91,12 @@
 							<div class="col">
 								<div class="form-group">
 									<input class="form-control" id="detailAddress" type="text"
-										name="detailAddress" placeholder="상세주소" />
+										name="detailAddress" value="${list.detailaddress}" />
 								</div>
 							</div>
 							<div class="col-5">
 								<input class="form-control" id="extraAddress" type="text"
-									name="extraAddress" placeholder="주소참조" readonly="readonly" />
+									name="extraAddress" value="${list.extraaddress}" readonly="readonly" />
 							</div>
 						</div>
 						<br />
@@ -98,8 +104,11 @@
 						<div class="row">
 							<div class="col-12">
 								<input type="button"
-									class="btn btn-danger btn-round float-right" value="UnRegister">
+									class="btn btn-danger btn-round float-right" 
+									id="btnUserDelete"
+									value="UnRegister">
 								<input type="button" class="btn btn btn-d btn-round float-right"
+									id="btnUserUpdate"
 									value="Update">
 							</div>
 						</div>
@@ -112,6 +121,59 @@
 
 
 <script>
+$("#btnUserUpdate").click(function(){
+	if(confirm('정말 수정할까요?')){
+	data={
+		"usercode":$("#usercode").val(),   //기본키
+		"username":$("#username").val(),  
+		"userpasswd":$("#userpasswd").val(), 
+		"name":$("#name").val(), 
+		"userphone":$("#userphone").val(), 
+		"postcode":$("#postcode").val(), 
+		"address":$("#address").val(), 
+		"detailaddress":$("#detailaddress").val(), 
+		"extraaddress":$("#extraaddress").val(),
+		"userregdate":$("#userregdate").val(),
+		"userrole":$("#userrole").val()
+		} //sql
+	$.ajax({
+		type:"put",
+		url:"/updateForm",
+		contentType:"application/json;charset=utf-8",
+		data:JSON.stringify(data),
+		success: function(resp){
+			if(resp=="success"){
+				alert("수정성공")
+				location.href="/main"//회원일경우 
+			}
+		},
+		error: function(request, status, error){
+			alert("수정실패 - code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	})
+	}
+})
+
+//삭제버튼
+$("#btnUserDelete").click(function(){
+	if(!confirm('정말 삭제할까요?')) return false; //취소면 끝내고 아니면 아래작업
+		$.ajax({
+			type:"DELETE",
+			url:"delete/${list.usercode}",
+			success:function(resp){
+				if(resp=="success"){
+					alert("회원삭제성공");
+					location.href="/main"//회원일경우 
+						
+						//관리자일경우
+						
+				}
+			},
+			error: function(request, status, error){
+				alert("삭제실패 - code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		})
+})
 	function execDaumPostcode() {
 		new daum.Postcode({
 			oncomplete : function(data) {

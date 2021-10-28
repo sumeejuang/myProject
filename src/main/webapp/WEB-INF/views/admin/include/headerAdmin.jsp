@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Laundromat Admin</title>
+	
+<script src="/js/style.js"></script>
+<!-- jQuery-->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	
+	
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
