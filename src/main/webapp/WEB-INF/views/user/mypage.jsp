@@ -30,6 +30,10 @@
 									<div class=col-sm-1-offset-6>
 										<input type="button" onclick="location.href='/logout'"
 											class="btn btn-d btn-round btn-xs" value="로그아웃">
+									<c:if test="${principal.user.userrole =='ROLE_ADMIN' }">		
+										<input type="button" onclick="location.href='/admin'"
+											class="btn btn-d btn-round btn-xs" value="관리자페이지">
+									</c:if>
 									</div>
 									<br />
 									<br />

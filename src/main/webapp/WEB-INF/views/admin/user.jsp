@@ -8,11 +8,11 @@
 			<h1 class="mt-4">회원관리</h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item"><a href="/admin" style="text-decoration:none">대시보드</a></li>
-				<li class="breadcrumb-item active">회원관리 회원수 : 총 ${count } 명</li>
+				<li class="breadcrumb-item active">회원관리 </li>
 			</ol>
 			<div class="card mb-4">
 				<div class="card-body">
-					<b>Laundromat</b> 회원관리
+					<b>Laundromat</b> 회원관리 - 회원수 : 총 <Strong>${count }</Strong> 명
 				</div>
 			</div>
 			<div class="card mb-4">

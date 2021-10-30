@@ -37,8 +37,8 @@
 					class="fas fa-user fa-fw"></i></a>
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="../admin/login">로그인</a></li>
-					<li><a class="dropdown-item" href="../admin/join">회원가입</a></li>
+					<li><a class="dropdown-item" href="../loginForm">로그인</a></li>
+					<li><a class="dropdown-item" href="../joinForm">회원가입</a></li>
 				</ul></li>
 		</ul>
 	</nav>
@@ -52,16 +52,18 @@
 						<a class="nav-link" href="../admin"> <span
 							class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></span>
 							AdminMain
-						</a> <a class="nav-link" href="../admin/charts"> <span
-							class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></span>
-							사이트 통계
-						</a> <a class="nav-link" href="../admin/user"> <span
+						</a> 
+						<a class="nav-link" href="../main"> <span
+							class="sb-nav-link-icon"><i class="fa fa-bed" aria-hidden="true"></i></span>
+							Laundromat
+						</a>
+						<a class="nav-link" href="../admin/user"> <span
 							class="sb-nav-link-icon"><i class="fas fa-table"></i></span> 
 							회원관리
 						</a> 
 						<a class="nav-link" href="../admin/product"> <span
 							class="sb-nav-link-icon"><i class="fas fa-table"></i></span> 
-							제품관리
+							상품관리
 						</a> 
 						<a class="nav-link" href="../admin/notice"> 
 						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
@@ -83,6 +85,10 @@
 						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							블로그관리
 						</a>
+						<a class="nav-link" href="../admin/charts"> <span
+							class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></span>
+							사이트 통계
+						</a> 
 					</div>
 				</div>
 			</nav>

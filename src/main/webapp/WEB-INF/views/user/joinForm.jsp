@@ -118,7 +118,109 @@
 
 
 
-<script type="text/javascript">
+<script>
+
+//회원가입
+$("#btnJoin").click(function() {
+	if ($("#username").val() == "") {
+		alert("이메일(ID) 입력하세요")
+		$("#username").focus()
+		return false;
+	}
+	if ($("#userpasswd").val() == "") {
+		alert("비밀번호를 입력하세요")
+		$("#userpasswd").focus()
+		return false;
+	}
+	if ($("#name").val() == "") {
+		alert("이름을 입력하세요")
+		$("#name").focus()
+		return false;
+	}
+	if ($("#userphone").val() == "") {
+		alert("전화번호를 입력하세요")
+		$("#userphone").focus()
+		return false;
+	}
+	if ($("#postcode").val() == "") {
+		alert("우편번호를 입력하세요")
+		$("#postcode").focus()
+		return false;
+	}
+	if ($("#detailaddres").val() == "") {
+		alert("상세주소를 입력하세요")
+		$("#detailaddres").focus()
+		return false;
+	}
+	
+	var data = {
+		"username" : $("#username").val(),
+		"userpasswd" : $("#userpasswd").val(),
+		"name" : $("#name").val(),
+		"userphone" : $("#userphone").val(),
+		"postcode" : $("#postcode").val(),
+		"address" : $("#address").val(),
+		"detailaddress" : $("#detailaddress").val(),
+		"extraaddress" : $("#extraaddress").val()
+	}
+	$.ajax({
+		type : "POST",
+		url : "/register",
+		contentType : "application/json;charset=utf-8",
+		data : JSON.stringify(data)
+	}).done(function(resp) {
+		if (resp == "success") {
+			alert("회원가입 성공")
+			location.href = "/loginForm"
+		} else if (resp == "fail") {
+			alert("아이디 중복확인")
+			$("#username").val("");
+		}
+	}).fail(function() {
+		alert("회원가입 실패")
+	})
+});
+
+//아이디체크
+$("#btnidck").click(function() {
+	if ($("#username").val() == "") {
+		alert("이메일(ID) 입력하세요")
+		$("#username").focus()
+		return false;
+	}
+	var username =$("#username").val();
+	$.ajax({
+		type : "GET",
+		url : "/idck?username="+username,
+		contentType : "application/json;charset=utf-8"
+	}).done(function(resp) {
+		if (resp == "success") {
+			alert("아이디 사용가능")
+		} else if (resp == "fail") {
+			alert("아이디중복 사용불가")
+			$("#username").val("");
+			$("#username").focus;
+		}
+	}).fail(function(request, status, error) {
+		alert("에러 - code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
+	})
+});
+
+//비번체크
+ function pwck() {
+  var p1 = document.getElementById('userpasswd').value;
+  var p2 = document.getElementById('userpasswdCK').value;
+  if( p1 != p2 ) {
+	  document.getElementById('check').innerHTML='비밀번호 불일치'
+	  document.getElementById('check').style.color='red';
+    
+  } else{
+	  document.getElementById('check').innerHTML='비밀번호 일치'
+	  document.getElementById('check').style.color='green';
+   
+  }
+
+
 //주소
 	function execDaumPostcode() {
 		new daum.Postcode({
@@ -168,110 +270,6 @@
 			}
 		}).open();
 	}
-
-	//회원가입
-	$("#btnJoin").click(function() {
-		if ($("#username").val() == "") {
-			alert("이메일(ID) 입력하세요")
-			$("#username").focus()
-			return false;
-		}
-		if ($("#userpasswd").val() == "") {
-			alert("비밀번호를 입력하세요")
-			$("#userpasswd").focus()
-			return false;
-		}
-		if ($("#name").val() == "") {
-			alert("이름을 입력하세요")
-			$("#name").focus()
-			return false;
-		}
-		if ($("#userphone").val() == "") {
-			alert("전화번호를 입력하세요")
-			$("#userphone").focus()
-			return false;
-		}
-		if ($("#postcode").val() == "") {
-			alert("우편번호를 입력하세요")
-			$("#postcode").focus()
-			return false;
-		}
-		if ($("#detailaddres").val() == "") {
-			alert("상세주소를 입력하세요")
-			$("#detailaddres").focus()
-			return false;
-		}
-		
-		var data = {
-			"username" : $("#username").val(),
-			"userpasswd" : $("#userpasswd").val(),
-			"name" : $("#name").val(),
-			"userphone" : $("#userphone").val(),
-			"postcode" : $("#postcode").val(),
-			"address" : $("#address").val(),
-			"detailaddress" : $("#detailaddress").val(),
-			"extraaddress" : $("#extraaddress").val()
-		}
-		$.ajax({
-			type : "POST",
-			url : "/register",
-			contentType : "application/json;charset=utf-8",
-			data : JSON.stringify(data)
-		}).done(function(resp) {
-			if (resp == "success") {
-				alert("회원가입 성공")
-				location.href = "/loginForm"
-			} else if (resp == "fail") {
-				alert("아이디 중복확인")
-				$("#username").val("");
-			}
-		}).fail(function() {
-			alert("회원가입 실패")
-		})
-	});
-
-	//아이디체크
-	$("#btnidck").click(function() {
-		if ($("#username").val() == "") {
-			alert("이메일(ID) 입력하세요")
-			$("#username").focus()
-			return false;
-		}
-		var username =$("#username").val();
-		$.ajax({
-			type : "GET",
-			url : "/idck?username="+username,
-			contentType : "application/json;charset=utf-8"
-		}).done(function(resp) {
-			if (resp == "success") {
-				alert("아이디 사용가능")
-			} else if (resp == "fail") {
-				alert("아이디중복 사용불가")
-				$("#username").val("");
-				$("#username").focus;
-			}
-		}).fail(function(e) {
-			alert("에러")
-		})
-	});
-	
-	//비번체크
-	 function pwck() {
-      var p1 = document.getElementById('userpasswd').value;
-      var p2 = document.getElementById('userpasswdCK').value;
-      if( p1 != p2 ) {
-    	  document.getElementById('check').innerHTML='비밀번호 불일치'
-    	document.getElementById('check').style.color='red';
-        
-      } else{
-    	  document.getElementById('check').innerHTML='비밀번호 일치'
-    	document.getElementById('check').style.color='green';
-       
-      }
-
-    }
-	
+    }	
 </script>
-
-
 <%@ include file="../layout/footer.jsp"%>

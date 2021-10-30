@@ -26,6 +26,10 @@
                   </div>
                   <div class="form-group float-right">
                   <a href="" style="text-decoration:none; color:#00008c">Forgot Password?</a></div>
+                <!--로그인실패시-->
+                <c:if test="${param.error!=null}">
+				<p style= "color:red"><Strong>에러메세지 : <c:out value="${exception}"/> </Strong> </p>
+				</c:if>
                 </form>
               </div>
               
@@ -44,4 +48,7 @@
           </div>
         </section>
 </div>
+
+
+
 <%@ include file="../layout/footer.jsp" %>

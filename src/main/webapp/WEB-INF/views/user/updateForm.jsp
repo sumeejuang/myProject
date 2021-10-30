@@ -110,6 +110,11 @@
 								<input type="button" class="btn btn btn-d btn-round float-right"
 									id="btnUserUpdate"
 									value="Update">
+								<c:if test="${principal.user.userrole =='ROLE_ADMIN' }">	
+							   <input type="button" class="btn btn btn-success btn-round float-right"
+									id="btnSetRoleAdmin"
+									value="set Role_Admin">
+								</c:if>
 							</div>
 						</div>
 				</form>
@@ -121,6 +126,30 @@
 
 
 <script>
+//Role_Admin버튼
+$("#btnSetRoleAdmin").click(function(){
+	if(confirm('관리자 권한을 부여할까요?')){
+		data={  "usercode":$("#usercode").val(),   //기본키
+				"userrole":$("#userrole").val()
+				} //sql
+		$.ajax({
+			type : "PUT",
+			url : "/role",
+			contentType : "application/json;charset=utf-8",
+			data:JSON.stringify(data)
+		}).done(function(resp) {
+			if (resp == "success") {
+				alert("관리자권한이 부여되었습니다")
+				location.href="/admin"
+				
+			} 
+		}).fail(function(request, status, error) {
+			alert("에러 - code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
+		})
+	}
+	
+})
+//수정버튼
 $("#btnUserUpdate").click(function(){
 	if(confirm('정말 수정할까요?')){
 	data={
@@ -156,14 +185,17 @@ $("#btnUserUpdate").click(function(){
 
 //삭제버튼
 $("#btnUserDelete").click(function(){
-	if(!confirm('정말 삭제할까요?')) return false; //취소면 끝내고 아니면 아래작업
+	if(!confirm('정말 탈퇴할까요?')) return false; //취소면 끝내고 아니면 아래작업
 		$.ajax({
 			type:"DELETE",
 			url:"../delete/${list.usercode}",
 			success:function(resp){
 				if(resp=="success"){
-					alert("회원삭제성공");
+					alert("탈퇴되었습니다");
+				
 					location.href="/main"//회원일경우 
+					
+					//관리자의경우
 						
 				}
 			},
@@ -173,6 +205,8 @@ $("#btnUserDelete").click(function(){
 		})
 })
 
+
+//우편번호
 	function execDaumPostcode() {
 		new daum.Postcode({
 			oncomplete : function(data) {

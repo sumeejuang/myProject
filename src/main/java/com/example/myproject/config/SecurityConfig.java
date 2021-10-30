@@ -6,36 +6,46 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
-@Configuration //2.환경설정파일
-@EnableWebSecurity //3.웹시큐리티 관련된것 활성화 시킴 (알려주는 역할 override처럼)
-public class SecurityConfig extends WebSecurityConfigurerAdapter{ //1.상속(환경설정파일)  //config시큐리티설정
-	//5.버전업되면서 시큐리티암호화관련 객체 줘야함
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Configuration 
+@EnableWebSecurity 
+@AllArgsConstructor
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	
+	private final AuthenticationFailureHandler customFailureHandler;
+	
 	@Bean
 	public BCryptPasswordEncoder encodePwd() {
-		return new BCryptPasswordEncoder(); //6.익명겍체만들어줌
+		return new BCryptPasswordEncoder(); 
 	}
 	
-	@Override //4.ctrl+space -> httpconfig
-	protected void configure(HttpSecurity http) throws Exception {
-		//7.http나열
-		http.csrf().disable(); //포스트맵핑자동적용위함 토큰값설정필요없음
-		http.authorizeRequests() //권한요구(권한찾기)
-			.antMatchers("/updateForm/*").authenticated() 
-			.antMatchers("/mypage/*").authenticated() 
-			.antMatchers("/admin").authenticated() 
-			.antMatchers("/admin/*").authenticated() //유형찾아서 요구 (user를 타고오는 패턴)빼고는 
-			.anyRequest() //나머지는
-			.permitAll() //모두 허용(시큐리티 로그인창에 걸리지않고 컨트롤러getmapping한 home으로)
+	@Override 
+	protected void configure(HttpSecurity http) throws Exception {	
+		
+		http.csrf().disable(); //포스트맵핑자동적용 토큰값설정필요없음
+		http.authorizeRequests() //권한찾기
+			.antMatchers("/updateForm/*", "/mypage/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+			.antMatchers("/noticeinsert","/noticeupdate","/eventinsert","/eventupdate",
+					"/productinsert","/productupdate","/bloginsert","/blogupdate","/noticeinsert",
+					"/noticeupdate","/admin","/admin/*").hasAnyAuthority("ROLE_ADMIN") 
+			.antMatchers("/cart").authenticated()
+			//.antMatchers("/checkout").hasAnyAuthority("ADMIN", "USER") 		
+			.anyRequest() //나머지
+			.permitAll() //모두 허용
 			.and()
 				.formLogin() //폼로그인
-				.loginPage("/loginForm") //로그인페이지 설정
-				.loginProcessingUrl("/loginProc")  //action이름 설정
-				.defaultSuccessUrl("/main") //성공하면 가는 루트
+				.loginPage("/loginForm") //로그인페이지 
+				.loginProcessingUrl("/loginProc")  //action
+				.defaultSuccessUrl("/main") //성공
+				.failureHandler(customFailureHandler)	// 실패핸들러
 			.and()
 				.logout()
-				.logoutUrl("/logout") //로그아웃페이지 설정
-				.logoutSuccessUrl("/main") //로그아웃 성공시 가는 루트
-				.invalidateHttpSession(true); //섹션값을 없애기
+				.logoutUrl("/logout") //로그아웃페이지 
+				.logoutSuccessUrl("/loginForm") //로그아웃 성공
+				.invalidateHttpSession(true); //섹션값 없애기			
 	}
 }

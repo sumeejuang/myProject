@@ -23,14 +23,12 @@
 							<tr>
 								<th>후기번호</th>
 								<th>제목</th>
-								<th>회원아이디</th>
 								<th>회원이메일</th>
 								<th>별점</th>
 								<th>내용</th>
-								<th>이미지</th>
 								<th>작성날짜</th>
 								<th>조회수</th>
-								<th>수정/삭제</th>
+								<th>수정</th>
 							</tr>
 						</thead>
 						<tbody>

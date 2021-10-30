@@ -24,8 +24,8 @@ public class UserService {
 	public void register(User user) {
 		//비번암호화되어 넣기
 		String rawPassword = user.getUserpasswd(); //user에 패스워드를 들고와서
-		String encPassword = encoder.encode(rawPassword); //암호화메서드encode함		
-		user.setUserpasswd(encPassword); //암호화된 비번 set
+		//String encPassword = encoder.encode(rawPassword); //암호화메서드encode함		
+		user.setUserpasswd(encoder.encode(rawPassword)); //암호화된 비번 set
 		user.setUserrole("ROLE_USER"); //권한부여 반드시 ROLE_ 포함되어야함
 		userRepository.save(user);
 	}
@@ -43,6 +43,13 @@ public class UserService {
 	//수정폼,마이페이지폼
 	public User findById(Long usercode) { 
 		return userRepository.findById(usercode).get(); 
+	}
+	
+	//권한수정
+	@Transactional 
+	public void updateRole(User data) { 	
+		User user = userRepository.findById(data.getUsercode()).get();
+		user.setUserrole("ROLE_ADMIN");
 	}
 	
 	//수정
