@@ -10,7 +10,7 @@
 			</ol>
 			<div class="card mb-4">
 				<div class="card-body">
-					<b>Laundromat</b> 리뷰게시판 관리
+					<b>Laundromat</b> 리뷰게시판 관리 - 게시글수 : 총 <Strong>${count }</Strong> 개
 				</div>
 			</div>
 			<div class="card mb-4">
@@ -24,35 +24,28 @@
 								<th>후기번호</th>
 								<th>제목</th>
 								<th>회원이메일</th>
-								<th>별점</th>
 								<th>내용</th>
+								<th>별점</th>
 								<th>작성날짜</th>
-								<th>조회수</th>
 								<th>수정</th>
 							</tr>
 						</thead>
 						<tbody>
+						<c:forEach items="${lists}" var="rboard"> 
 							<tr>
-								<th>샤넬미스트</th>
-								<th>샤넬</th>
-								<th>★★★</th>
-								<th>456</th>
-								<th>2021/10/01</th>
+								<th>${rboard.reviewCode }</th>
+								<th>${rboard.reviewTitle }</th>
+								<th>${rboard.reviewWriter }</th>
+								<th>${rboard.reviewContent }</th>
+								<th>${rboard.reviewStar }</th>
+								<th>${rboard.reviewRegdate }</th>
+								<th>
+								<button type="button" 
+								onclick="location.href='../reviewupdate/${rboard.reviewCode }'"
+								class="btn btn-outline-warning btn-sm"
+								>수정</button></th>
 							</tr>
-							<tr>
-								<th>샤넬미스트</th>
-								<th>샤넬</th>
-								<th>★★★</th>
-								<th>456</th>
-								<th>2021/10/01</th>
-							</tr>
-							<tr>
-								<th>샤넬미스트</th>
-								<th>샤넬</th>
-								<th>★★★</th>
-								<th>456</th>
-								<th>2021/10/01</th>
-							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 				</div>

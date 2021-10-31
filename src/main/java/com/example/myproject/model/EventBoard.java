@@ -20,24 +20,29 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name="rBoard")
-public class ReviewBoard {
+@Entity(name="eBoard")
+public class EventBoard {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long reviewCode;
-	private String reviewTitle;
-	private String reviewWriter;
-	private String reviewContent;
+	private Long eventCode;
+	private String eventTitle;
+	private String eventWriter;
+	private String eventContent;
+	private String imageContent;
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date reviewRegdate;
-	private Long reviewStar;
+	private Date eventRegdate;
+	private Long eventHitcount;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="usercode") 
 	private User user;
+
+//	@OneToMany(mappedBy = "eBoard", 
+//			cascade = CascadeType.ALL)
+//    Set<EventLike> likes = new HashSet<>();
 	
 	@PrePersist 
 	public void prePersist() {
-		this.reviewStar=this.reviewStar==null? 0: this.reviewStar;
+		this.eventHitcount=this.eventHitcount==null? 0: this.eventHitcount;
 	}
 }

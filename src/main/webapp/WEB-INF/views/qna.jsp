@@ -67,7 +67,7 @@
                 </div>
               </div>
     <div class="col-xs-6">
-                <h4 class="font-alt">ASK ANYTHING</h4>
+                <h4 class="font-alt">ASK ANYTHING | 1대1문의하기</h4>
                 <hr class="divider-w mb-10"><br/>
                 <form id="contactForm" role="form" method="post" action="php/contact.php">
                   <div class="form-group">

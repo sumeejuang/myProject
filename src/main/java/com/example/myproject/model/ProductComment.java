@@ -14,39 +14,42 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @NoArgsConstructor 
 @AllArgsConstructor
 @Getter @Setter
-@Entity(name = "nComment") 
-public class NoticeComment {
+@Entity(name = "pComment") 
+public class ProductComment {
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long nCnum;
-	private String ncContent;
-	private String ncWriter;
+	private Long pCnum;
+	private String pcContent;
+	private String pcWriter;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(shape= Shape.STRING,
 	pattern ="yyyy-MM-dd", timezone="Asia/Seoul")
-	private Date nRegdate;
+	private Date pRegdate;
 	
 	@JsonManagedReference
 	//@JsonBackReference
 	@ManyToOne  
-	@JoinColumn(name = "nBnum") 
-	private NoticeBoard nBoard;  
+	@JoinColumn(name = "pBnum") 
+	private ProductBoard pBoard;  
 	//board형에 담아서 가져옴 -->Comment에서 bnum가져다쓰기
 	
 	//Comment입장에서 User만 참조
 	@ManyToOne
 	@JoinColumn(name="usercode")
 	private User user;
+
 }

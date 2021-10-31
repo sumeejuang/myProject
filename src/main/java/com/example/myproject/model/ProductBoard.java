@@ -18,42 +18,50 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @NoArgsConstructor 
 @AllArgsConstructor
 @Getter
 @Setter
-@Entity(name="nBoard")
-public class NoticeBoard {
+@Entity(name="pBoard")
+public class ProductBoard {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long noticeCode;
-	private String noticeTitle;
-	private String noticeWriter;
-	private String noticeContent;
+	private Long productCode;
+	private String productTitle;
+	private String productWriter;
+	private Long productPrice;
+	private Long productAmount;
+	private String productContent;
+	private String imageContent;
+	private String productCategory;
+	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date noticeRegdate;
-	private Long noticeHitcount;
-	private Long noticeReplycnt;
+	private Date productRegdate;
+	
+	private Long productHitcount;
+	private Long productReplycnt;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoryCode") 
+    private Category category;
+
 
 	//@JsonIgnore
 	//@JsonIgnoreProperties("nBoard") 
 	@JsonBackReference
 	//@JsonManagedReference
-	@OneToMany(mappedBy="nBoard", 
+	@OneToMany(mappedBy="pBoard", 
 		fetch = FetchType.LAZY,
 		cascade = CascadeType.ALL)
-	//@JoinColumn(name = "nComments") 
-	private List<NoticeComment> nComments; 
+	@JoinColumn(name = "pComments") 
+	private List<ProductComment> pComments; 
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -62,7 +70,8 @@ public class NoticeBoard {
 	
 	@PrePersist 
 	public void prePersist() {
-		this.noticeHitcount=this.noticeHitcount==null? 0: this.noticeHitcount;
-		this.noticeReplycnt=this.noticeReplycnt==null? 0: this.noticeReplycnt;
+		this.productHitcount=this.productHitcount==null? 0: this.productHitcount;
+		this.productReplycnt=this.productReplycnt==null? 0: this.productReplycnt;
 	}
+
 }

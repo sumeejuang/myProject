@@ -9,25 +9,24 @@
 		<div class="row">
 			<div class="col-10" style="float: none; margin: 0 auto;">
 				<h2 class="font-alt">Notice</h2>
-				<br />
-				<br />
-				<br />
+				<br /> <br /> <br />
 
 				<div class="post ">
 					<div class="post-header">
 						<blockquote>
 							<h1 class="post-title">${nboard.noticeTitle }</h1>
 						</blockquote>
-						
+
 					</div>
 					<input class="form-control" id="noticeCode" type="hidden"
-										name="noticeCode" value="${nboard.noticeCode }" />
+						name="noticeCode" value="${nboard.noticeCode }" />
 					<div style="float: right; margin: 0 auto;">
-						<h5 class=" post-body font-alt">By&nbsp; ${nboard.noticeWriter } &nbsp;| &nbsp;
-							${nboard.noticeRegdate }&nbsp; | &nbsp; 조회수
-							${nboard.noticeHitcount }</h5>
+						<h5 class=" post-body font-alt">By&nbsp;
+							${nboard.noticeWriter } &nbsp;| &nbsp; ${nboard.noticeRegdate }&nbsp;
+							| &nbsp; 조회수 ${nboard.noticeHitcount }</h5>
 					</div>
-					<br /><br />
+					<br />
+					<br />
 
 					<div class="post-entry">
 						<p>${nboard.noticeContent }</p>
@@ -51,32 +50,43 @@
 									onclick="location.href='../noticeupdate/${noticeCode}'"
 									value="Update">
 							</c:if>
-							
+
 						</div>
 					</div>
-					    <br/>
-					    
-				<form action="post">    
-                <div class="comment-form">
-                  <h4 class="comment-form-title font-alt">ADD YOUR COMMENT</h4>
-                    <div class="form-group">
-                      <label class="sr-only" for="username">ID</label>
-                      <input class="form-control" id="ncWriter" type="text" name="ncWriter" 
-                      	value="${principal.user.username }" readonly="readonly">
-                    </div>
-                    <div class="form-group">
-                      <textarea class="form-control" id="ncContent" name="text" rows="4" 
-                      placeholder="Comment"></textarea>
-                    </div>
-                    <button type="button"
-                    class="btn btn-d btn-round btn-sm" id="commentBtn" >Post comment</button>
-                </div> 
-                 </form>	 
-                 <div class="comments" id="comments">
-                 -
-                 
-                  </div>
-                
+					<br />
+
+					<form action="post">
+						<div class="comment-form">
+							<h4 class="comment-form-title font-alt">ADD YOUR COMMENT</h4>
+							<input class="form-control" id="noticeCode" type="hidden"
+							name="noticeCode" value="${nboard.noticeCode }" />
+							<sec:authorize access="isAnonymous()">
+								<div class="form-group">
+									<label class="sr-only" for="username">ID</label> <input
+										class="form-control" id="ncWriter" type="text" name="ncWriter"
+										placeholder="Login" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<textarea class="form-control" id="ncContent" name="text"
+										rows="4" placeholder="로그인 후 작성가능합니다" readonly="readonly"></textarea>
+								</div>
+							</sec:authorize>
+							<sec:authorize access="isAuthenticated()">
+								<div class="form-group">
+									<label class="sr-only" for="username">ID</label> <input
+										class="form-control" id="ncWriter" type="text" name="ncWriter"
+										value="${principal.user.username }" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<textarea class="form-control" id="ncContent" name="text"
+										rows="4" placeholder="Comment"></textarea>
+								</div>
+							</sec:authorize>
+							<button type="button" class="btn btn-d btn-round btn-sm"
+								id="commentBtn">Post comment</button>
+						</div>
+					</form>
+					<div class="comments" id="comments">-</div>
 				</div>
 			</div>
 		</div>
@@ -88,8 +98,9 @@
 	var init = function(){
 		$.ajax({
 			type:"get",
-			url:"../nclist/"+$("#noticeCode").val(),
-			//dataType: "html"
+			url:"../nclist/"+$("#noticeCode").val()
+			//dataType: "html",
+			//contentType: 'application/json; charset=utf-8'
 		
 		})
 		.done(function(resp){  

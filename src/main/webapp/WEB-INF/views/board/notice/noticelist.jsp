@@ -8,7 +8,7 @@
 <div class="main">
 	 <section class="module home-full-weight bg-light">
 	 <div class="container">
-	 	<h3 class="font-alt">Notice</h3>
+	 	<h3 class="font-alt">Notice | 공지사항</h3>
 	 	  <c:if test="${principal.user.userrole =='ROLE_ADMIN' }">
 			<div class="row">
 			<div class ="col-1"></div>

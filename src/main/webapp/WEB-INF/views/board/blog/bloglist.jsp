@@ -6,7 +6,7 @@
 <div class="main">
 	 <section class="module home-full-weight bg-light">
              <div class="container">
-              <h3 class="font-alt">Bedding Story</h3>
+              <h3 class="font-alt">Bedding Story | 침구의 재발견</h3>
              <hr class="divider-w mb-10"><br/>
             <div class="row">
               <div class="col-sm-8">

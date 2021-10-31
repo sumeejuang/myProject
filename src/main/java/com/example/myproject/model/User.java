@@ -25,11 +25,9 @@ import lombok.NoArgsConstructor;
 public class User {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long usercode;
-	@Column(nullable=false, unique=true) 
+	@Column(unique=true) 
 	private String username; //이메일=아이디
-	@Column(nullable=false) 
 	private String userpasswd;
-	@Column(nullable=false) 
 	private String name;
 	private String userphone;
 	private String postcode;

@@ -109,7 +109,7 @@
 				<div class="attr-nav mt-1">
 					<ul>
 					<sec:authorize access="isAnonymous()">
-						<li class="button"><a href="../loginForm"><i class="fa fa-user-circle"></i></a></li>
+						<li class="button"><a href="../loginForm"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
 					</sec:authorize>
 					 <sec:authorize access="isAuthenticated()">
 					 <li class="button"><a href="../mypage/${principal.user.usercode }"><i class="fa fa-user-circle"></i></a></li>

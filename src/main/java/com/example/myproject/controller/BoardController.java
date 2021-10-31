@@ -5,19 +5,34 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.myproject.config.auth.PrincipalDetails;
+import com.example.myproject.model.EventBoard;
 import com.example.myproject.model.NoticeBoard;
+import com.example.myproject.model.ReviewBoard;
+import com.example.myproject.service.EventboardService;
 import com.example.myproject.service.NoticeboardService;
+import com.example.myproject.service.ReviewboardService;
 
 @Controller
 public class BoardController { //게시판
 	
 	@Autowired
 	private NoticeboardService nbService; //공지사항
+	@Autowired
+	private ReviewboardService rbService; //리뷰
+	@Autowired
+	private EventboardService ebService; //이벤트
 	
 	
    //공지사항
@@ -44,25 +59,79 @@ public class BoardController { //게시판
 	
 	
 	
-	
-	
-	
-	
-	
 	//리뷰게시판
+	//전체보기(웹)
 	@GetMapping("reviewlist")
-	public String reviewlist() {
+	public String reviewlist(Model model,
+			@PageableDefault(size=8,sort="reviewCode",//(한페이지당 7개)
+			direction=Sort.Direction.DESC) Pageable pageable) {
+		Page<ReviewBoard> lists = rbService.findAll(pageable);
+		model.addAttribute("lists",lists); //jsp뿌려지는 값lists
+		model.addAttribute("count",rbService.count());
+		model.addAttribute("rowNo",rbService.count()-(lists.getNumber()*8)); 
 		return "/board/review/reviewlist";
 	}
+	//추가폼
 	@GetMapping("reviewinsert")
-	public String reviewinsert() {
-		return "/board/notice/reviewinsert";
+	public String reviewForm() {
+		return "/board/review/reviewinsert";
 	}
-	@GetMapping("reviewupdate")
-	public String reviewupdate() {
-		return "/board/notice/reviewupdate";
+	//추가하기
+	@PostMapping("reviewinsert")
+	public String reviewinsert(ReviewBoard rboard,
+			@AuthenticationPrincipal PrincipalDetails principal) {
+		rbService.rinsert(rboard, principal.getUser());
+		return "redirect:/reviewlist";
+	}
+	//수정폼
+	@GetMapping("reviewupdate/{reviewcode}")
+	public String reviewupdateForm(@PathVariable Long reviewcode, 
+			Model model) {
+		model.addAttribute("rboard",rbService.findById(reviewcode));
+		return "/board/review/reviewupdate";
+	}
+	//수정하기
+	@PutMapping("reviewupdate")
+	@ResponseBody //문자열
+	public String reviewupdate(@RequestBody ReviewBoard rboard) { 
+		rbService.rupdate(rboard);
+		return "success";
+	}
+	//삭제하기
+	@DeleteMapping("reviewdelete/{reviewCode}")
+	@ResponseBody //문자열
+	public String delete(@PathVariable Long reviewCode) {
+		nbService.delete(reviewCode); 
+		return "success";
+	}
+	
+	
+	//이벤트
+	//전체보기(웹)
+	@GetMapping("eventlist")
+	public String eventlist(Model model,
+			@PageableDefault(size=8,sort="eventCode",
+			direction=Sort.Direction.DESC) Pageable pageable) {
+		Page<EventBoard> lists = ebService.findAll(pageable);
+		model.addAttribute("lists",lists); //jsp뿌려지는 값lists
+		model.addAttribute("count",rbService.count());
+		model.addAttribute("rowNo",rbService.count()-(lists.getNumber()*8)); 
+		return "/board/event/eventlist";
+	}
+	//상세보기
+	@GetMapping("eventview/{eventcode}")
+	public String eventview(@PathVariable Long eventcode, 
+			Model model) {
+		model.addAttribute("eboard",ebService.findById(eventcode));
+		return "/board/event/eventview";
 	}
 
+	
+
+	
+	
+	
+	
 	//블로그
 	@GetMapping("bloglist")
 	public String bloglist() {
@@ -81,23 +150,7 @@ public class BoardController { //게시판
 		return "/board/blog/blogupdate";
 	}
 	
-	//이벤트
-	@GetMapping("eventlist")
-	public String eventlist() {
-		return "/board/event/eventlist";
-	}
-	@GetMapping("eventview")
-	public String eventview() {
-		return "/board/event/eventview";
-	}
-	@GetMapping("eventinsert")
-	public String eventinsert() {
-		return "/board/event/eventinsert";
-	}
-	@GetMapping("eventupdate")
-	public String eventupdate() {
-		return "/board/event/eventupdate";
-	}
+	
 	
 
 }

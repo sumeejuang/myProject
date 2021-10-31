@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../layout/header.jsp" %>
-<section class="module-small bg-dark-1" data-background="assets/images/subs/head02.jpg">
+<section class="module-small bg-dark-1" data-background="assets/images/subs/head05.jpg">
 </section>
 <div class="main">
 	 <section class="module home-full-weight bg-light">
 	  <div class="container">
-	          <h3 class="font-alt">Event</h3>
+	          <h3 class="font-alt">Event | 이벤트</h3>
              <hr class="divider-w mb-10"><br/>
             <div class="row multi-columns-row post-columns">
               <div class="col-sm-6 col-md-4 col-lg-4">

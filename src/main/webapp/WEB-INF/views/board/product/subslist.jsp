@@ -6,7 +6,7 @@
 <div class="main">
 	 <section class="module home-full-weight bg-light">
 	           <div class="container">
-	                    <h3 class="font-alt">Subscription</h3>
+	                    <h3 class="font-alt">Subscription | 정기구독</h3>
              <hr class="divider-w mb-10"><br/>
             <form class="row">
               <div class="col-sm-4 mb-sm-20">
