@@ -63,12 +63,10 @@
             <div class="row">
               <div class="col-sm-3">
                 <div class="form-group">
-                  <input class="form-control" type="text" id="" name="" placeholder="Coupon code">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
-                  <button class="btn btn-round btn-g" type="submit">Apply</button>
                 </div>
               </div>
               <div class="col-sm-3 col-sm-offset-3">

@@ -27,29 +27,29 @@ public class CommentController {
 	private NoticecommentService ncService;
 	
 	//댓글추가
-		@PostMapping("ncinsert/{nBnum}") 
-		public String ncinsert(@PathVariable Long nBnum, 
-								@RequestBody NoticeComment nccomment,
-								@AuthenticationPrincipal PrincipalDetails principal) { 
-			NoticeBoard nb = new NoticeBoard();
-			nb.setNoticeCode(nBnum); 
-			nccomment.setNBoard(nb); 	
-			nccomment.setUser(principal.getUser());
-			ncService.ncinsert(nccomment);
-			return "success"; 
-		}
+	@PostMapping("ncinsert/{nBnum}") 
+	public String ncinsert(@PathVariable Long nBnum, 
+							@RequestBody NoticeComment nccomment,
+							@AuthenticationPrincipal PrincipalDetails principal) { 
+		NoticeBoard nb = new NoticeBoard();
+		nb.setNoticeCode(nBnum); 
+		nccomment.setNBoard(nb); 	
+		//nccomment.setUser(principal.getUser());
+		ncService.ncinsert(nccomment);
+		return "success"; 
+	}
 		
 	//댓글출력리스트
-		@GetMapping("nclist/{noticeCode}")
-		public List<NoticeComment> nclist(@PathVariable Long noticeCode){
-			return ncService.nclist(noticeCode);
-		}
+	@GetMapping("nclist/{noticeCode}")
+	public List<NoticeComment> nclist(@PathVariable Long noticeCode){
+		return ncService.nclist(noticeCode);
+	}
 		
-		//댓글삭제
-		@DeleteMapping("ncdelete/{nCnum}")
-		public Long ncdelete(@PathVariable Long nCnum, NoticeComment nccomment) {
-			ncService.ncdelete(nCnum, nccomment);
-			return nCnum;
+	//댓글삭제
+	@DeleteMapping("ncdelete/{nCnum}")
+	public Long ncdelete(@PathVariable Long nCnum, NoticeComment nccomment) {
+		ncService.ncdelete(nCnum, nccomment);
+		return nCnum;
 			
 		}
 

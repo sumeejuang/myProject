@@ -25,10 +25,7 @@
 									name="noticeWriter" value="${nboard.noticeWriter }"
 									readonly="readonly" />
 							</div>
-							<div class="col">
-								<input class="form-control" id="noticeRegdate" type="date"
-									name="noticeRegdate" />
-							</div>
+							
 						</div>
 					</div>
 			<div class="form-group bg-white">
@@ -58,9 +55,18 @@
 
 
 <script>
-	//날짜세팅
-	document.getElementById('noticeRegdate').valueAsDate = new Date();
+//써머노트
+$(document).ready(function() {
+	$('#noticeContent').summernote({
+		height : 300,
+		minHeight : null,
+		maxHeight : null,
+		focus : true,
+		lang : "ko-KR",
+		placeholder : '내용을 입력하세요'
 
+	});
+});
 	
 	//수정버튼
 	$("#btnNUpdate").click(function(){
@@ -68,8 +74,7 @@
 	data={
 		"noticeCode":$("#noticeCode").val(),   //기본키
 		"noticeTitle":$("#noticeTitle").val(),  
-		"noticeContent":$("#noticeContent").val(), 
-		"noticeRegdate":$("#noticeRegdate").val()
+		"noticeContent":$("#noticeContent").val() 
 		} //sql
 	$.ajax({
 		type:"put",
@@ -89,18 +94,7 @@
 	}
 })
 
-	//써머노트
-	$(document).ready(function() {
-		$('#noticeContent').summernote({
-			height : 300,
-			minHeight : null,
-			maxHeight : null,
-			focus : true,
-			lang : "ko-KR",
-			placeholder : '내용을 입력하세요'
-
-		});
-	});
+	
 </script>
 
 <%@ include file="../../layout/footer.jsp"%>

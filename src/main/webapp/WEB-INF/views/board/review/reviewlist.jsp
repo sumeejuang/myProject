@@ -25,13 +25,46 @@
 							${rboard.reviewTitle }</h4>
 						<div class="row mb-20">
 							<div class="col-sm-12">
-								<span><i class="fa fa-star star"></i></span> <span><i
-									class="fa fa-star star"></i></span> <span><i
-									class="fa fa-star star"></i></span> <span><i
-									class="fa fa-star star"></i></span> <span><i
-									class="fa fa-star star-off"></i></span> <span>
-									${rboard.reviewStar }, </span> <span> By ${rboard.reviewWriter },
-								</span> <span> <i class="fa fa-clock-o" aria-hidden="true"></i> ${rboard.reviewRegdate }</span>
+							<c:if test="'${rboard.reviewStar==1}">
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star-off"></i></span> 
+							<span><i class="fa fa-star star-off"></i></span> 
+							<span><i class="fa fa-star star-off"></i></span> 
+							<span><i class="fa fa-star star-off"></i></span> 
+							</c:if>
+							<c:if test="${rboard.reviewStar==2}">
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star-off"></i></span>
+							<span><i class="fa fa-star star-off"></i></span>
+							<span><i class="fa fa-star star-off"></i></span>
+							</c:if>
+							<c:if test="${rboard.reviewStar==3}">
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star-off"></i></span>
+							<span><i class="fa fa-star star-off"></i></span>
+							</c:if>
+							<c:if test="${rboard.reviewStar==4}">
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star-off"></i></span>
+							</c:if>
+							<c:if test="${rboard.reviewStar==5}">
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							<span><i class="fa fa-star star"></i></span>
+							</c:if>
+								
+								<span> Rating ${rboard.reviewStar }, </span> 
+								<span> By ${rboard.reviewWriter },</span> 
+								<span> <i class="fa fa-clock-o" aria-hidden="true"></i> 
+								${rboard.reviewRegdate }</span>
 							</div>
 						</div>
 						<p class="card-text">${rboard.reviewContent }</p>

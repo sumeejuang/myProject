@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -14,7 +15,7 @@
 	<script src="/js/style.js"></script>
 	
 	<!--페브콘-->
-	<link rel="icon" type="image/png" href="/assets/images/favicon11.png">
+	<link rel="icon" type="image/png" href="/assets/images/subs/favicon11.png">
 	
 	<!-- 주소찾기 -->
 	<script
@@ -141,8 +142,8 @@
 				role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Shop</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="../subslist">Subscription</a></li>
-					<li><a class="dropdown-item" href="../beddinglist">Bedding Shop</a></li>
+					<li><a class="dropdown-item" href="../productlist?productCategory=subs">Subscription</a></li>
+					<li><a class="dropdown-item" href="../productlist?productCategory=bedding">Bedding Shop</a></li>
 					<li><a class="dropdown-item" href="../eventlist">Event</a></li>
 				</ul></li>				
 				<li class="nav-item dropdown">
@@ -151,7 +152,7 @@
 				About</a>
 				<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
 					<li><a class="dropdown-item" href="../brandstory">Brand Story</a></li>
-					<li><a class="dropdown-item" href="../bloglist">Blog</a></li>
+					<!-- <li><a class="dropdown-item" href="../bloglist">Blog</a></li> -->
 					<li><a class="dropdown-item" href="../reviewlist">Review</a></li>
 					<li><a class="dropdown-item" href="../qna">Q&A</a></li>
 					<li><a class="dropdown-item" href="../noticelist">Notice</a></li>
@@ -167,18 +168,18 @@
 			<div class="side">
 				<a href="#" class="close-side"><i class="fa fa-times"></i></a>
 				<div class="widget">
-					<h6 class="title">Shop</h6>
+					<h6 class="title"><Strong>Shop</Strong></h6>
 					<ul class="link">
-						<li><a href="../subslist">Subscription 정기구독</a></li>
-						<li><a href="../beddinglist">Bedding Shop 침구샵</a></li>
+						<li><a href="../productlist?productCategory=subs">Subscription 정기구독</a></li>
+						<li><a href="../productlist?productCategory=bedding">Bedding Shop 침구샵</a></li>
 						<li><a href="../eventlist">Event 이벤트</a></li>
 					</ul>
 				</div>
 				<div class="widget">
-					<h6 class="title">About</h6>
+					<h6 class="title"><Strong>About</Strong></h6>
 					<ul class="link">
 						<li><a href="../brandstory">Brand Story 런드로맷</a></li>
-						<li><a href="../bloglist">Blog 침구의재발견</a></li>
+						<!-- <li><a href="../bloglist">Blog 침구의재발견</a></li> -->
 						<li><a href="../reviewlist">Review 후기</a></li>
 						<li><a href="../qna">Q&A 문의사항</a></li>
 						<li><a href="../noticelist">Notice 공지</a></li><br/>

@@ -25,13 +25,14 @@
 				</div>
 				<div class="col">
                       <div class="form-group">
-                        <select class="form-control" id="reviewStar">
-                          <option selected="true" disabled="">Rating</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
+                        <select class="form-control" name="reviewStar" 
+                        id="reviewStar">
+                          <option selected disabled>Rating</option>
+                          <option value=1>1</option>
+                          <option value=2>2</option>
+                          <option value=3>3</option>
+                          <option value=4>4</option>
+                          <option value=5>5</option>
                         </select>
                       </div>
 				</div>

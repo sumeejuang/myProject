@@ -13,7 +13,7 @@
                   당신의 침구,<br/>
                   세탁한지 얼마나 되었나요?</div>
                   <a class="section-scroll btn btn-border-w btn-round btn-lg" 
-                  href="subslist">
+                  href="../productlist?productCategory=subs">
                   SUBSCRIPTION 시작하기</a>
                 </div>
               </div>
@@ -25,7 +25,7 @@
                   <div class="font-alt mb-30 titan-title-size-4"> WINTER 2021</div>
                   <div class="font-alt mb-40 titan-title-size-1">Your online COMFORTHERS destination</div>
                   <a class="section-scroll btn btn-border-w btn-round btn-lg" 
-                  href="beddinglist">BEDDING SHOP 구매하기</a>
+                  href="../productlist?productCategory=bedding">BEDDING SHOP 구매하기</a>
                 </div>
               </div>
             </li>
@@ -35,227 +35,104 @@
                   <div class="font-alt mb-30 titan-title-size-1">런드로맷의 발견</div>
                   <div class="font-alt mb-40 titan-title-size-4">Bedding Story</div>
                   <a class="section-scroll btn btn-border-w btn-round btn-lg" 
-                  href="bloglist"> Learn More 더알아보기</a>
+                  href="/brandstory"> Learn More 더알아보기</a>
                 </div>
               </div>
             </li>
           </ul>
         </div>
       </section>
-      <div class="main">
+      <div class="main bg-light">
 
-	       <section class="module-small">
-          <div class="container"></div>
-        </section>
+
+        <hr class="divider-w">   
         
-        	<hr class="divider-w">
+        <section class="module-small  mt-40 mb-30">
+      <div class="container">
+        <div class="row">
         
-		<div class="container">
-		  <div class="row">
-		    <div class="col-md-5 pull-left"><img src="resources/titan/images/shop/product-1.jpg" alt="Title of Image"></div>
-		    <div class="col-md-5 mt-10 ml-auto">
-		    
-		    <div class="pr-12 work-details">
-                  <h5 class="work-details-title font-alt"><strong>Project Details</strong></h5>
-                  <p>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: </p>
-		    	<ul>
-                    <li><strong>Client: </strong><span class="font-serif"><a href="#" target="_blank">SomeCompany</a></span>
-                    </li>
-                    <li><strong>Date: </strong><span class="font-serif"><a href="#" target="_blank">23 November, 2015</a></span>
-                    </li>
-                    <li><strong>Online: </strong><span class="font-serif"><a href="#" target="_blank">www.example.com</a></span>
-                    </li>
-                  </ul>
-			</div>
-		  </div>
-		  </div>
-		  </div>
-		  
-		  
-		    <section class="module-small">
-          <div class="container"></div>
-        </section>
-		  
-		  <div class="container">
-		  <div class="row">
-		  	<div class="work-details ml-2">
-                  <h5 class="work-details-title font-alt"><strong>Project Details</strong></h5>
-                  <p>The languages only differ in their grammar, their pronunciation</p>
-		    	<ul>
-                    <li><strong>Client: </strong><span class="font-serif"><a href="#" target="_blank">SomeCompany</a></span>
-                    </li>
-                    <li><strong>Date: </strong><span class="font-serif"><a href="#" target="_blank">23 November, 2015</a></span>
-                    </li>
-                    <li><strong>Online: </strong><span class="font-serif"><a href="#" target="_blank">www.example.com</a></span>
-                    </li>
-                  </ul>
-			</div>
-			
-		    
-		    <div class="col-md-7 ml-4 offset"><img src="resources/titan/images/shop/product-1.jpg" alt="Title of Image"></div>
-		    <div class="col-md-5 mt-10 ml-auto offset">
-		  </div>
-		  
-		</div>
-		
-		<section class="module-small">
-          <div class="container"></div>
-        </section>
-        
-		</div>
-        
-        
-        
-        
-        
-        <section class="module-small">
-          <div class="container">
-            
-            
-            
-            
-          </div>
-        </section>
-        <hr class="divider-w">
-        
-        <section class="module-small">
-          <div class="container">
-            
-            
-            
-            
-          </div>
-        <hr class="divider-w">
-        
-        
-      
-        <section class="module home-full-weight bg-light" id="news">
-          <div class="container ">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3 mt-50 mb-50">
-                <h2 class="module-title font-alt">Our News</h2>
-              </div>
+           <div>
+              <div class="row center-block">   
+                 <hr align="right" style="border: solid 0.5px black; width: 60px; margin-right:20px;">
             </div>
-            <div class="row multi-columns-row post-columns wo-border">
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="post mb-40">
-                  <div class="post-header font-alt">
-                    <h2 class="post-title"><a href="#"style="text-decoration:none; color:#00008c">Receipt of the new collection</a></h2>
-                  </div>
-                  <div class="post-entry">
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="post-more"><a class="more-link" href="#"style="text-decoration:none; color:black">Read more</a></div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="post mb-40">
-                  <div class="post-header font-alt">
-                    <h2 class="post-title"><a href="#"style="text-decoration:none; color:#00008c">Sale of summer season</a></h2>
-                  </div>
-                  <div class="post-entry">
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="post-more"><a class="more-link" href="#"style="text-decoration:none; color:black">Read more</a></div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="post mb-40">
-                  <div class="post-header font-alt">
-                    <h2 class="post-title"><a href="#"style="text-decoration:none; color:#00008c">New lookbook</a></h2>
-                  </div>
-                  <div class="post-entry">
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="post-more"><a class="more-link" href="#"style="text-decoration:none; color:black">Read more</a></div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="post mb-40">
-                  <div class="post-header font-alt">
-                    <h2 class="post-title"><a href="#"style="text-decoration:none; color:#00008c">Receipt of the new collection</a></h2>
-                  </div>
-                  <div class="post-entry">
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="post-more"><a class="more-link" href="#"style="text-decoration:none; color:black">Read more</a></div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="post mb-40">
-                  <div class="post-header font-alt">
-                    <h2 class="post-title"><a href="#"style="text-decoration:none; color:#00008c">Sale of summer season</a></h2>
-                  </div>
-                  <div class="post-entry">
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="post-more"><a class="more-link" href="#"style="text-decoration:none; color:black">Read more</a></div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="post mb-40">
-                  <div class="post-header font-alt">
-                    <h2 class="post-title"><a href="#"style="text-decoration:none; color:#00008c">New lookbook</a></h2>
-                  </div>
-                  <div class="post-entry">
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                  <div class="post-more"><a class="more-link" href="#"style="text-decoration:none; color:black">Read more</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+           
+             <div class="col-md-6 pull-left"><img src="assets/images/brandstory/SCH_3543.jpg" alt="Title of Image">
+             </div>
+           
+             <div class="row work-details col-md-6 pull-right">
+                     <h5 class="work-details-title" style="text-align:right; margin-left:320px">
+                     <strong>Bedding Subscription</strong></h5>
+                     
+                           <p class="font-alt" class style="text-align:right; margin-left:75px">
+                           
+                           <br/>집으로 배송받는 깨끗한 침구 세탁 서비스.<br> 
+                           5성급 호텔의 침구를 담당하는 전문 세탁공장에서 세탁합니다.<br/>
+                     2중 검수를 통해 전후 상태를 꼼꼼히 확인하며<br>심한 오염이 발견된 제품은 별도 기록하여 재세탁을 진행합니다.<br> 
+                     새 이불의 아늑함을 매달 집으로 보내드릴게요.</p>
+                  
+                  <div class="container col-sm pull-right" style="margin-left:330px">
+                  <br><br><br><br>
+                       <button type="button" class="btn btn-outline-dark btn-lg-5" 
+                       onclick="location.href='../productlist?productCategory=subs'"
+                       style="width: 180px; height:40px">Subscription</button>
+                    </div>   
+                  
+             </div>
+         </div>
+        
+        </div>
+        </div>
+        </section>        
+        <br>
        
-
- 
+        <section class="module-small bg-white">>
+        <div class="container mt-20" style="margin-bottom:-80px">
+           <div class="row">
+              
+              <div>
+                 <div class="row center-block">   
+                    <hr align="left" style="border: solid 0.5px black; width: 60px; margin-left:10px;">
+                 </div>
+                 
+                 <div class="row work-details col-md-6 pull-left">
+                       <h5 class="work-details-title " style="text-align:left"><strong>Product</strong></h5>
+                           
+                           <p class="font-alt" class style="text-align:left; margin-right:80px">
+                           <br/>
+                           <br/>
+                           
+                           한 번 구매하면 몇 년 동안 사용하는 이불. <br/>
+                           매장에서 고르기엔 귀찮고,<br/> 
+                           온라인으로 주문하기엔 헷갈리는 침구세트. <br/>
+                     꼭 필요한 미니멀 제품 구성으로 침구를 보내드립니다. <br/>
+                     호텔의 아늑함을 집에서 느껴보세요.<br/>
+                           </p>
+                     
+                     <br><br><br><br><br><br><br><br>
+                   <div class="container col-sm pull-left" style="margin-right:350px">
+                   <br><br><br><br>
+                       <button type="button" class="btn btn-outline-dark btn-lg" 
+                        onclick="location.href='../productlist?productCategory=bedding'"
+                       style="width: 180px; height:40px;">BeddingShop</button>
+                    </div>
+                 </div>
+            
+               
+                <div class="col-md-6 pull-right">
+                <img src="assets/images/brandstory/brandImage_3.png" alt="Title of Image">
+                
+                </div>
+            
+             </div>             
+         </div> 
+      </div>       
+       </section>
+          
+      </div>
+      
+      <br><br><br><br><br>
+        <hr class="divider-w">   
+      
         
-        </section>
-        <section class="module  home-full-weight bg-light">
-       <div class="container">
-                   <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">Subscribe</h2>
-              </div>
-            </div>
-            <div class="row multi-columns-row">
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="shop-item">
-                  <div class="shop-item-image"><img src="assets/images/shop/product-7.jpg" alt="Accessories Pack"/>
-                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
-                  </div>
-                  <h4 class="shop-item-title font-alt"><a href="#">Accessories Pack</a></h4>£9.00
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="shop-item">
-                  <div class="shop-item-image"><img src="assets/images/shop/product-8.jpg" alt="Men’s Casual Pack"/>
-                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
-                  </div>
-                  <h4 class="shop-item-title font-alt"><a href="#">Men’s Casual Pack</a></h4>£12.00
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="shop-item">
-                  <div class="shop-item-image"><img src="assets/images/shop/product-9.jpg" alt="Men’s Garb"/>
-                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
-                  </div>
-                  <h4 class="shop-item-title font-alt"><a href="#">Men’s Garb</a></h4>£6.00
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="shop-item">
-                  <div class="shop-item-image"><img src="assets/images/shop/product-10.jpg" alt="Cold Garb"/>
-                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
-                  </div>
-                  <h4 class="shop-item-title font-alt"><a href="#">Cold Garb</a></h4>£14.00
-                </div>
-              </div>
-            </div>
-            <div class="row mt-30">
-              <div class="col-sm-12 align-center"><a class="btn btn-b btn-round" href="#">See all products</a></div>
-            </div>
-          </div>
-        </section>
 
 <%@ include file="layout/footer.jsp" %>

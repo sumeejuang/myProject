@@ -10,12 +10,27 @@
 			</ol>
 			<div class="card mb-4">
 				<div class="card-body">
-					<b>Laundromat</b> 이벤트페이지 관리
+					<b>Laundromat</b> 이벤트페이지 관리 - 게시글수 : 총 <Strong>${count }</Strong> 개
 				</div>
 			</div>
 			<div class="card mb-4">
 				<div class="card-header">
+					<div class="row">
+					<div class="col-sm-8 ">
 					<i class="fas fa-table me-1"></i> 이벤트페이지 관리
+					</div>
+					<div class="col-sm-1">
+					<input type="button"
+						class="btn btn-d btn-round btn-sm" 
+						onclick="location.href='/eventlist'"
+						value="리스트로"> 
+					</div>
+					<div class="col-sm-3 d-grid">
+					<button type="button" 
+					class="btn btn-danger btn-sm btn-block"
+					onclick="location.href='../eventinsert'">게시글 추가하기</button>
+					</div>
+				</div>
 				</div>
 				<div class="card-body">
 					<table id="datatablesSimple">
@@ -24,45 +39,27 @@
 								<th>이벤트번호</th>
 								<th>회원아이디</th>
 								<th>제목</th>
-								<th>내용</th>
-								<th>이미지</th>
-								<th>썸내일이미지</th>
 								<th>작성날짜</th>
 								<th>조회수</th>
-								<th>수정/삭제</th>
+								<th>수정</th>
 							</tr>
 						</thead>
 						<tbody>
+						<c:forEach items="${lists}" var="eboard"> 
 							<tr>
-								<th>정기구독</th>
-								<th>001</th>
-								<th>10000</th>
-								<th>100</th>
-								<th>이불이불이불</th>
-								<th>2021-10-25</th>
-								<th>100</th>
-								<th>http://---</th>
-								<th>http://---</th>
+								<th>${eboard.eventCode }</th>
+								<th>${eboard.eventWriter }</th>
+								<th>${eboard.eventTitle }</th>
+								<th>${eboard.eventRegdate }</th>
+								<th>${eboard.eventHitcount}</th>
 								<th>
-								<button type="button" class="btn btn-outline-warning btn-sm">수정</button><br/>
-								<button type="button" class="btn btn-outline-danger btn-sm">삭제</button>
+								<button type="button" 
+								onclick="location.href='../eventupdate/${eboard.eventCode }'"
+								class="btn btn-outline-warning btn-sm"
+								>수정</button>
 								</th>
 							</tr>
-							<tr>
-								<th>침구샵</th>
-								<th>002</th>
-								<th>23000</th>
-								<th>90</th>
-								<th>123이불</th>
-								<th>2021-10-25</th>
-								<th>100</th>
-								<th>http://---</th>
-								<th>http://---</th>
-								<th>
-								<button type="button" class="btn btn-outline-warning btn-sm">수정</button><br/>
-								<button type="button" class="btn btn-outline-danger btn-sm">삭제</button>
-								</th>
-							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 				</div>

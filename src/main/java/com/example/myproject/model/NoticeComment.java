@@ -38,12 +38,10 @@ public class NoticeComment {
 	pattern ="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date nRegdate;
 	
-	@JsonManagedReference
-	//@JsonBackReference
+
 	@ManyToOne  
 	@JoinColumn(name = "nBnum") 
 	private NoticeBoard nBoard;  
-	//board형에 담아서 가져옴 -->Comment에서 bnum가져다쓰기
 	
 	//Comment입장에서 User만 참조
 	@ManyToOne

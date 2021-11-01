@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.myproject.config.auth.PrincipalDetails;
 import com.example.myproject.model.EventBoard;
 import com.example.myproject.model.NoticeBoard;
+import com.example.myproject.model.ProductBoard;
 import com.example.myproject.model.ReviewBoard;
 import com.example.myproject.service.EventboardService;
 import com.example.myproject.service.NoticeboardService;
+import com.example.myproject.service.ProductboardService;
 import com.example.myproject.service.ReviewboardService;
 
 @Controller
@@ -33,6 +35,10 @@ public class BoardController { //게시판
 	private ReviewboardService rbService; //리뷰
 	@Autowired
 	private EventboardService ebService; //이벤트
+	@Autowired
+	private ProductboardService pbService; //상품
+
+	
 	
 	
    //공지사항
@@ -40,13 +46,12 @@ public class BoardController { //게시판
 	@GetMapping("noticelist")
 	public String noticelist(
 		Model model,
-		@PageableDefault(size=8,sort="noticeCode",//(한페이지당 7개)
+		@PageableDefault(size=8,sort="noticeCode",
 					direction=Sort.Direction.DESC) Pageable pageable) {
 	Page<NoticeBoard> lists = nbService.findAll(pageable);
 	model.addAttribute("lists",lists); //jsp뿌려지는 값lists
 	model.addAttribute("count",nbService.count());
 	model.addAttribute("rowNo",nbService.count()-(lists.getNumber()*8)); 
-							//게시글수-현재페이지getNumber 1 *7 만큼 뺌 // 7-7 =0
 		return "/board/notice/noticelist";
 	}
 	
@@ -63,12 +68,12 @@ public class BoardController { //게시판
 	//전체보기(웹)
 	@GetMapping("reviewlist")
 	public String reviewlist(Model model,
-			@PageableDefault(size=8,sort="reviewCode",//(한페이지당 7개)
+			@PageableDefault(size=5,sort="reviewCode",
 			direction=Sort.Direction.DESC) Pageable pageable) {
 		Page<ReviewBoard> lists = rbService.findAll(pageable);
 		model.addAttribute("lists",lists); //jsp뿌려지는 값lists
 		model.addAttribute("count",rbService.count());
-		model.addAttribute("rowNo",rbService.count()-(lists.getNumber()*8)); 
+		model.addAttribute("rowNo",rbService.count()-(lists.getNumber()*5)); 
 		return "/board/review/reviewlist";
 	}
 	//추가폼
@@ -110,12 +115,12 @@ public class BoardController { //게시판
 	//전체보기(웹)
 	@GetMapping("eventlist")
 	public String eventlist(Model model,
-			@PageableDefault(size=8,sort="eventCode",
+			@PageableDefault(size=6,sort="eventCode",
 			direction=Sort.Direction.DESC) Pageable pageable) {
 		Page<EventBoard> lists = ebService.findAll(pageable);
 		model.addAttribute("lists",lists); //jsp뿌려지는 값lists
 		model.addAttribute("count",rbService.count());
-		model.addAttribute("rowNo",rbService.count()-(lists.getNumber()*8)); 
+		model.addAttribute("rowNo",rbService.count()-(lists.getNumber()*6)); 
 		return "/board/event/eventlist";
 	}
 	//상세보기
@@ -125,30 +130,58 @@ public class BoardController { //게시판
 		model.addAttribute("eboard",ebService.findById(eventcode));
 		return "/board/event/eventview";
 	}
-
 	
 
 	
+	//제품
+	//전체보기(웹)
+	@GetMapping("productlist")
+	public String productlistsubs(String productCategory,
+		Model model,
+		@PageableDefault(size=8,sort="productCode",
+					direction=Sort.Direction.DESC) Pageable pageable) {
+	Page<ProductBoard> lists = pbService.findByProductCategory(productCategory,pageable);
+	model.addAttribute("lists",lists); 
+	model.addAttribute("count",pbService.count());
+	model.addAttribute("rowNo",pbService.count()-(lists.getNumber()*8)); 
+		return "/board/product/productlist";
+	}
+	
+	
+	//상세보기
+	@GetMapping("productview/{productCode}")
+	public String productview(@PathVariable Long productCode, Model model) {
+		model.addAttribute("pboard",pbService.findById(productCode));
+		return "/board/product/productview";
+	}
+	
+	//페이징
+	@GetMapping("productview")
+	public String productview() {
+		return "/board/product/productview";
+	}
+		
 	
 	
 	
-	//블로그
-	@GetMapping("bloglist")
-	public String bloglist() {
-		return "/board/blog/bloglist";
-	}
-	@GetMapping("blogview")
-	public String blogview() {
-		return "/board/blog/blogview";
-	}
-	@GetMapping("bloginsert")
-	public String bloginsert() {
-		return "/board/blog/bloginsert";
-	}
-	@GetMapping("blogupdate")
-	public String blogupdate() {
-		return "/board/blog/blogupdate";
-	}
+//	
+//	//블로그
+//	@GetMapping("bloglist")
+//	public String bloglist() {
+//		return "/board/blog/bloglist";
+//	}
+//	@GetMapping("blogview")
+//	public String blogview() {
+//		return "/board/blog/blogview";
+//	}
+//	@GetMapping("bloginsert")
+//	public String bloginsert() {
+//		return "/board/blog/bloginsert";
+//	}
+//	@GetMapping("blogupdate")
+//	public String blogupdate() {
+//		return "/board/blog/blogupdate";
+//	}
 	
 	
 	

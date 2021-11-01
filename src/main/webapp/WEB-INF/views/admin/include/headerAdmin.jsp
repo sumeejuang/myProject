@@ -9,9 +9,7 @@
 	
 <script src="/js/style.js"></script>
 <!-- jQuery-->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	
-	
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -30,17 +28,17 @@
 				<i class="fas fa-bars"></i>
 			</button>
 		</div>
-		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+		<!--  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 				role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
 					class="fas fa-user fa-fw"></i></a>
-				<ul class="dropdown-menu dropdown-menu-end"
+				 <ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
 					<li><a class="dropdown-item" href="../loginForm">로그인</a></li>
 					<li><a class="dropdown-item" href="../joinForm">회원가입</a></li>
 				</ul></li>
-		</ul>
+		</ul> -->
 	</nav>
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
@@ -73,21 +71,17 @@
 							class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							리뷰페이지관리
 						</a> 
-						<a class="nav-link" href="../admin/comment"> 
-						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
-							상품내리뷰관리
-						</a> 
 						<a class="nav-link" href="../admin/event"> 
 						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							이벤트관리
 						</a>
-						<a class="nav-link" href="../admin/blog"> 
+						<!--  <a class="nav-link" href="../admin/blog"> 
 						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							블로그관리
-						</a>
-						<a class="nav-link" href="../admin/charts"> <span
-							class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></span>
-							사이트 통계
+						</a>-->
+						<a class="nav-link" href="../admin/comment"> 
+						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
+							상품내리뷰관리
 						</a> 
 					</div>
 				</div>

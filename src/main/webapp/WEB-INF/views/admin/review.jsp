@@ -15,7 +15,17 @@
 			</div>
 			<div class="card mb-4">
 				<div class="card-header">
+					<div class="row">
+					<div class="col-sm-10 ">
 					<i class="fas fa-table me-1"></i> 리뷰게시판 관리
+					</div>
+					<div class="col-sm-1">
+					<input type="button"
+						class="btn btn-d btn-round btn-sm" 
+						onclick="location.href='/reviewlist'"
+						value="리스트로"> 
+					</div>
+				</div>
 				</div>
 				<div class="card-body">
 					<table id="datatablesSimple">

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,8 +38,8 @@ public class ProductBoard {
 	private String productWriter;
 	private Long productPrice;
 	private Long productAmount;
+	private String productDesc;
 	private String productContent;
-	private String imageContent;
 	private String productCategory;
 	
 	@CreationTimestamp
@@ -47,20 +48,17 @@ public class ProductBoard {
 	
 	private Long productHitcount;
 	private Long productReplycnt;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoryCode") 
-    private Category category;
+
 
 
 	//@JsonIgnore
 	//@JsonIgnoreProperties("nBoard") 
 	@JsonBackReference
 	//@JsonManagedReference
+	@Column(name="pComment") 
 	@OneToMany(mappedBy="pBoard", 
 		fetch = FetchType.LAZY,
 		cascade = CascadeType.ALL)
-	@JoinColumn(name = "pComments") 
 	private List<ProductComment> pComments; 
 	
 	

@@ -1,9 +1,9 @@
 package com.example.myproject.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,9 +18,9 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,7 +33,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name="nBoard")
-public class NoticeBoard {
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
+public class NoticeBoard implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long noticeCode;
 	private String noticeTitle;
@@ -45,14 +46,11 @@ public class NoticeBoard {
 	private Long noticeHitcount;
 	private Long noticeReplycnt;
 
-	//@JsonIgnore
-	//@JsonIgnoreProperties("nBoard") 
-	@JsonBackReference
-	//@JsonManagedReference
+
 	@OneToMany(mappedBy="nBoard", 
-		fetch = FetchType.LAZY,
-		cascade = CascadeType.ALL)
-	//@JoinColumn(name = "nComments") 
+		fetch = FetchType.LAZY
+		)
+	@JsonIgnoreProperties("nBoard") 
 	private List<NoticeComment> nComments; 
 	
 	

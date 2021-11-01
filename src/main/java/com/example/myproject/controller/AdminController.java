@@ -1,9 +1,17 @@
 package com.example.myproject.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.myproject.config.auth.PrincipalDetails;
 import com.example.myproject.model.EventBoard;
@@ -121,8 +130,8 @@ public class AdminController { //관리자
 	//전체보기(어드민)
 	@GetMapping("/admin/event")
 	public String event(Model model) {
-		model.addAttribute("lists",rbService.findAll());
-		model.addAttribute("count",rbService.count());
+		model.addAttribute("lists",ebService.findAll());
+		model.addAttribute("count",ebService.count());
 		return "/admin/event";
 	}
 	//추가폼
@@ -135,7 +144,7 @@ public class AdminController { //관리자
 	public String eventinsert(EventBoard eboard,
 			@AuthenticationPrincipal PrincipalDetails principal) {
 		ebService.einsert(eboard, principal.getUser());
-		return "/board/event/eventinsert";
+		return "redirect:/eventlist";
 	}
 	//수정폼
 	@GetMapping("eventupdate/{eventcode}")
@@ -181,13 +190,13 @@ public class AdminController { //관리자
 	public String productinsert(ProductBoard pboard,
 			@AuthenticationPrincipal PrincipalDetails principal) {
 		pbService.pinsert(pboard, principal.getUser());
-		return "/board/product/productinsert";
+		return "redirect:/admin/product";
 	}
 	//수정폼
 	@GetMapping("productupdate/{productCode}")
 	public String productupdateForm(@PathVariable Long productCode, 
 			Model model) {
-		model.addAttribute("rboard",pbService.findById(productCode));
+		model.addAttribute("pboard",pbService.findById(productCode));
 		return "/board/product/productupdate";
 	}
 	//수정

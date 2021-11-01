@@ -16,8 +16,8 @@
 						<blockquote>
 							<h1 class="post-title">${nboard.noticeTitle }</h1>
 						</blockquote>
-
 					</div>
+					
 					<input class="form-control" id="noticeCode" type="hidden"
 						name="noticeCode" value="${nboard.noticeCode }" />
 					<div style="float: right; margin: 0 auto;">
@@ -27,7 +27,6 @@
 					</div>
 					<br />
 					<br />
-
 					<div class="post-entry">
 						<p>${nboard.noticeContent }</p>
 					</div>
@@ -73,7 +72,7 @@
 							</sec:authorize>
 							<sec:authorize access="isAuthenticated()">
 								<div class="form-group">
-									<label class="sr-only" for="username">ID</label> <input
+									<label class="sr-only" for="ncWriter">ID</label> <input
 										class="form-control" id="ncWriter" type="text" name="ncWriter"
 										value="${principal.user.username }" readonly="readonly">
 								</div>
@@ -104,20 +103,23 @@
 		
 		})
 		.done(function(resp){  
-			alert(resp.length);
-			//var str="<h4 class='comment-title font-alt'>${nboard.noticeReplycnt }</h4>"
-			//	str +="<div class='comment-content clearfix' style=' pull-left; margin-left:30px'>"
-			//$.each(resp,function(key,val){
-			//	str +=" <div class='comment-author text-uppercase'>"+val.ncWriter+"</div>"
-			//	str += "<div class='comment-body'> <p>"+val.ncContent +"</p> </div>" 
-			//	str += "<div class='comment-meta text-uppercase'>"+ val.nRegdate 
-			//if("${principal.user.username}"==val.ncWriter){
-			//	str += "- <a class='text-dark' href='javascript:fdel("
-			//			+ val.nCnum+")'> Delete </a> </div>"
-			//		}
-			//	str +="</div>"
-			//})
-			//$("#comments").html(str);
+			//alert(resp.length);
+			var str="<h4 class='comment-title font-alt'> 총 ${nboard.noticeReplycnt } 개의 댓글이 있습니다.</h4>"
+				
+			$.each(resp,function(key,val){
+				str +="<div class='comment-content clearfix' style=' pull-left; margin-left:30px'>"
+				str +="<i class='fa fa-commenting-o' aria-hidden='true'></i>"
+				str +=" <div class='title'><Strong>"+val.ncWriter+"</Strong></div>"
+				str +=" <div class='title'><Strong> 씨넘: "+val.nCnum+"</Strong></div>"
+				str += "<div class='comment-body'> <p>"+val.ncContent +"</p> </div>" 
+				str += "<div class='comment-meta'>"+ val.nRegdate 
+			if("${principal.user.username}"==val.ncWriter){
+				str += "- <a class='text-dark' href='javascript:fdel("
+						+ val.nCnum+")'> Delete </a> "
+					}
+				str +=" </div></div>"
+			})
+			$("#comments").html(str);
 		})
 		.fail(function(request, status, error){
 			alert("출력error:- code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error );
@@ -134,8 +136,10 @@
 			alert(resp+"번 댓글 삭제완료");
 			init();
 		})
-		.fail(function(){
-			alert("댓글 삭제실패")
+		.fail(function(request, status, error){
+			alert("출력error:- code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error );
+
+			//alert("댓글 삭제실패")
 		})
 	}
 

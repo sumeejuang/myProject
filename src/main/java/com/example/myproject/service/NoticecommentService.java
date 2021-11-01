@@ -38,14 +38,16 @@ public class NoticecommentService {
 	
 	//댓글출력리스트
 	public List<NoticeComment> nclist(Long noticeCode) {
-		return ncRepository.findByBnum(noticeCode); 	
+		List<NoticeComment> nc= ncRepository.findByBnum(noticeCode); 
+		//System.out.println("nc"+nc.size());
+		return 	nc;
 	}
 	
 	//댓글삭제
 	@Transactional
 	public void ncdelete(Long nCnum, NoticeComment nccomment ) {
 		NoticeBoard nb = nbRepository.findById(nccomment.getNBoard().getNoticeCode()).get();
-		nb.setNoticeReplycnt(nb.getNoticeReplycnt()+1);
+		nb.setNoticeReplycnt(nb.getNoticeReplycnt()-1);
 		ncRepository.deleteById(nCnum);
 	}
 

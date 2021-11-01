@@ -18,7 +18,7 @@ public class ProductboardService {
 	@Autowired
 	ProductboardRepository pbRepository;
 	
-	//추가
+		//추가
 		@Transactional 
 		public void pinsert(ProductBoard pboard, User user) { 
 			pboard.setUser(user); 
@@ -30,27 +30,13 @@ public class ProductboardService {
 			return pbRepository.findAll();
 		}
 		//전체보기(페이징)
-		public Page<ProductBoard> findAll(Pageable pageable){
-			return pbRepository.findAll(pageable);
+		public Page<ProductBoard> findByProductCategory(String productCategory, 
+				Pageable pageable){
+			return pbRepository.findByProductCategory(productCategory, pageable);
 		}
 		//갯수
 		public Long count() {
 			return pbRepository.count(); 
-		}
-		
-		
-		//전체상세-제품별 페이징
-		public Page<ProductBoard> findByCategory(Pageable pageable){
-		return pbRepository.findByCategory(pageable);
-		}
-		//전체상세-제품별
-		@Transactional //(조회수)db에 반영되어진 내용들이 view단까지 반영될 수 있도록 설정
-		public ProductBoard findByCategory(Long categorycode) { 
-			return pbRepository.findByCategory(categorycode).get();
-		}
-		
-		public List<Category> pclist(Long categoryCode) {
-			return pbRepository.findByCategoryCode(categoryCode); 	
 		}
 		
 		
@@ -72,7 +58,6 @@ public class ProductboardService {
 			ProductBoard pb = pbRepository.findById(pboard.getProductCode()).get();
 			pb.setProductTitle(pboard.getProductTitle());
 			pb.setProductContent(pboard.getProductContent());
-			pb.setImageContent(pboard.getImageContent());
 			pb.setProductPrice(pboard.getProductPrice());
 			pb.setProductAmount(pboard.getProductAmount());
 		}
