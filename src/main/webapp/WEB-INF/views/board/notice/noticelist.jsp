@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../../layout/header.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><!-- 날짜포멧지정 -->
-
 <section class="module-small bg-dark-1"
 	data-background="assets/images/subs/head02.jpg"></section>
 <div class="main">
@@ -38,8 +37,8 @@
 								<th>${rowNo-st.index }</th>
 								<th><a class="text-dark"
 									href="/noticeview/${nboard.noticeCode}">
-										${nboard.noticeTitle } &nbsp;&nbsp;&nbsp;&nbsp;</a> 
-										<i class="fa fa-commenting-o" aria-hidden="true"></i>
+										${nboard.noticeTitle } &nbsp;&nbsp;&nbsp;&nbsp;</a> <i
+									class="fa fa-commenting-o" aria-hidden="true"></i>
 									${nboard.noticeReplycnt }</th>
 
 								<th><fmt:formatDate value="${nboard.noticeRegdate }"
@@ -49,9 +48,6 @@
 						</c:forEach>
 				</tbody>
 			</table>
-
-
-
 			<!-- 페이징처리 -->
 			<ul class="pagination font-alt float-right">
 				<!-- 페이징처리 -->

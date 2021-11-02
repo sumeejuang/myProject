@@ -29,32 +29,29 @@ public class ProductboardService {
 		public List<ProductBoard> findAll(){
 			return pbRepository.findAll();
 		}
+		
 		//전체보기(페이징)
 		public Page<ProductBoard> findByProductCategory(String productCategory, 
 				Pageable pageable){
 			return pbRepository.findByProductCategory(productCategory, pageable);
 		}
+		
 		//갯수
 		public Long count() {
 			return pbRepository.count(); 
 		}
 		
-		
 		//상세
-		@Transactional //(조회수)db에 반영되어진 내용들이 view단까지 반영될 수 있도록 설정
+		@Transactional
 		public ProductBoard findById(Long productCode) { 
 			ProductBoard pboard = pbRepository.findById(productCode).get(); 
 			pboard.setProductHitcount(pboard.getProductHitcount()+1); //조회수증가
 			return pboard; 
 		}
 		
-
-		
-		
 		//수정
 		@Transactional 
-		public void pupdate(ProductBoard pboard) { //수정될값
-			// nb 수정전데이터에 set함 
+		public void pupdate(ProductBoard pboard) { 
 			ProductBoard pb = pbRepository.findById(pboard.getProductCode()).get();
 			pb.setProductTitle(pboard.getProductTitle());
 			pb.setProductContent(pboard.getProductContent());

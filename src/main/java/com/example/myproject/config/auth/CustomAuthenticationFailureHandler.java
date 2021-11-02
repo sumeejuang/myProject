@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
-
+	//아이디비번체크
 	 @Override
 	    public void onAuthenticationFailure(HttpServletRequest request, 
 	    		HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {

@@ -42,7 +42,7 @@ public class NoticeboardService {
 	}
 	
 	//상세
-	@Transactional //(조회수)db에 반영되어진 내용들이 view단까지 반영될 수 있도록 설정
+	@Transactional
 	public NoticeBoard findById(Long noticeCode) { 
 		NoticeBoard nboard = nbRepository.findById(noticeCode).get(); 
 		nboard.setNoticeHitcount(nboard.getNoticeHitcount()+1); //조회수증가
@@ -51,8 +51,7 @@ public class NoticeboardService {
 	
 	//수정
 	@Transactional 
-	public void update(NoticeBoard nboard) { //수정될값
-		// nb 수정전데이터에 set함 
+	public void update(NoticeBoard nboard) { 
 		NoticeBoard nb = nbRepository.findById(nboard.getNoticeCode()).get();
 		nb.setNoticeTitle(nboard.getNoticeTitle());
 		nb.setNoticeContent(nboard.getNoticeContent());

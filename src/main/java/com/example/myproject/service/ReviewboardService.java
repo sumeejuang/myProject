@@ -42,7 +42,7 @@ public class ReviewboardService {
 	}
 	
 	//상세
-	@Transactional //(조회수)db에 반영되어진 내용들이 view단까지 반영될 수 있도록 설정
+	@Transactional 
 	public ReviewBoard findById(Long ReviewCode) { 
 		ReviewBoard rboard = rbRepository.findById(ReviewCode).get(); 
 		return rboard; 
@@ -50,8 +50,7 @@ public class ReviewboardService {
 	
 	//수정
 	@Transactional 
-	public void rupdate(ReviewBoard rboard) { //수정될값
-		// nb 수정전데이터에 set함 
+	public void rupdate(ReviewBoard rboard) { 
 		ReviewBoard rb = rbRepository.findById(rboard.getReviewCode()).get();
 		rb.setReviewTitle(rboard.getReviewTitle());
 		rb.setReviewContent(rboard.getReviewContent());

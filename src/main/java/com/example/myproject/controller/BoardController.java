@@ -40,7 +40,6 @@ public class BoardController { //게시판
 
 	
 	
-	
    //공지사항
 	//전체보기(웹)
 	@GetMapping("noticelist")
@@ -111,6 +110,8 @@ public class BoardController { //게시판
 	}
 	
 	
+	
+	
 	//이벤트
 	//전체보기(웹)
 	@GetMapping("eventlist")
@@ -133,6 +134,7 @@ public class BoardController { //게시판
 	
 
 	
+	
 	//제품
 	//전체보기(웹)
 	@GetMapping("productlist")
@@ -146,15 +148,12 @@ public class BoardController { //게시판
 	model.addAttribute("rowNo",pbService.count()-(lists.getNumber()*8)); 
 		return "/board/product/productlist";
 	}
-	
-	
 	//상세보기
 	@GetMapping("productview/{productCode}")
 	public String productview(@PathVariable Long productCode, Model model) {
 		model.addAttribute("pboard",pbService.findById(productCode));
 		return "/board/product/productview";
 	}
-	
 	//페이징
 	@GetMapping("productview")
 	public String productview() {

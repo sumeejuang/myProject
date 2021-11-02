@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Laundromat Admin</title>
-	
+
 <script src="/js/style.js"></script>
 <!-- jQuery-->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -17,12 +17,23 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/js/scripts.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="/admin/assets/demo/chart-area-demo.js"></script>
+<script src="/admin/assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
+<script src="/admin/js/datatables-simple-demo.js"></script>
 
 
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-		<a class="navbar-brand ps-3" href="../admin" style="color:papayawhip">Laundromat Admin</a>
-		<div class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+		<a class="navbar-brand ps-3" href="../admin" style="color: papayawhip">Laundromat
+			Admin</a>
+		<div
+			class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 			<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 				id="sidebarToggle" href="../admin">
 				<i class="fas fa-bars"></i>
@@ -50,39 +61,30 @@
 						<a class="nav-link" href="../admin"> <span
 							class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></span>
 							AdminMain
-						</a> 
-						<a class="nav-link" href="../main"> <span
-							class="sb-nav-link-icon"><i class="fa fa-bed" aria-hidden="true"></i></span>
-							Laundromat
-						</a>
-						<a class="nav-link" href="../admin/user"> <span
-							class="sb-nav-link-icon"><i class="fas fa-table"></i></span> 
-							회원관리
-						</a> 
-						<a class="nav-link" href="../admin/product"> <span
-							class="sb-nav-link-icon"><i class="fas fa-table"></i></span> 
-							상품관리
-						</a> 
-						<a class="nav-link" href="../admin/notice"> 
-						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
+						</a> <a class="nav-link" href="../main"> <span
+							class="sb-nav-link-icon"><i class="fa fa-bed"
+								aria-hidden="true"></i></span> Laundromat
+						</a> <a class="nav-link" href="../admin/user"> <span
+							class="sb-nav-link-icon"><i class="fas fa-table"></i></span> 회원관리
+						</a> <a class="nav-link" href="../admin/product"> <span
+							class="sb-nav-link-icon"><i class="fas fa-table"></i></span> 상품관리
+						</a> <a class="nav-link" href="../admin/notice"> <span
+							class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							공지사항관리
-						</a> 
-						<a class="nav-link" href="../admin/review"> <span
+						</a> <a class="nav-link" href="../admin/review"> <span
 							class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							리뷰페이지관리
-						</a> 
-						<a class="nav-link" href="../admin/event"> 
-						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
+						</a> <a class="nav-link" href="../admin/event"> <span
+							class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							이벤트관리
+						</a> <a class="nav-link" href="../admin/qna"> <span
+							class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
+							QnA확인
 						</a>
-						<!--  <a class="nav-link" href="../admin/blog"> 
-						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
-							블로그관리
-						</a>-->
-						<a class="nav-link" href="../admin/comment"> 
+						<!-- <a class="nav-link" href="../admin/comment"> 
 						<span class="sb-nav-link-icon"><i class="fas fa-table"></i></span>
 							상품내리뷰관리
-						</a> 
+						</a>  -->
 					</div>
 				</div>
 			</nav>

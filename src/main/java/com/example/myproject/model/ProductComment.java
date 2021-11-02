@@ -40,7 +40,7 @@ public class ProductComment {
 	pattern ="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date pRegdate;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	//@JsonBackReference
 	@ManyToOne  
 	@JoinColumn(name = "pBnum") 

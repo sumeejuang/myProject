@@ -24,16 +24,7 @@ public class NoticecommentService {
 	public void ncinsert(NoticeComment nccomment) { 
 		NoticeBoard nb = nbRepository.findById(nccomment.getNBoard().getNoticeCode()).get();
 		nb.setNoticeReplycnt(nb.getNoticeReplycnt()+1);
-
-		//댓글추가
 		ncRepository.save(nccomment);
-		
-		//ncRepository.commentInsert(
-		//		nccomment.getNContent(),
-		//		nccomment.getNBoard().getNoticeCode(),
-		//		nccomment.getUser().getUsercode()
-		//		);
-
 	}
 	
 	//댓글출력리스트

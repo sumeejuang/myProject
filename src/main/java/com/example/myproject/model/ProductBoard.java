@@ -19,7 +19,9 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,6 +33,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name="pBoard")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class ProductBoard {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long productCode;
@@ -49,11 +52,9 @@ public class ProductBoard {
 	private Long productHitcount;
 	private Long productReplycnt;
 
-
-
 	//@JsonIgnore
-	//@JsonIgnoreProperties("nBoard") 
-	@JsonBackReference
+	@JsonIgnoreProperties("pBoard") 
+	//@JsonBackReference
 	//@JsonManagedReference
 	@Column(name="pComment") 
 	@OneToMany(mappedBy="pBoard", 

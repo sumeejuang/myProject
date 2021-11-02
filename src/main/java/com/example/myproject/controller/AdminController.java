@@ -1,17 +1,9 @@
 package com.example.myproject.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.UUID;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.example.myproject.config.auth.PrincipalDetails;
 import com.example.myproject.model.EventBoard;
@@ -29,6 +20,7 @@ import com.example.myproject.model.User;
 import com.example.myproject.service.EventboardService;
 import com.example.myproject.service.NoticeboardService;
 import com.example.myproject.service.ProductboardService;
+import com.example.myproject.service.QnaService;
 import com.example.myproject.service.ReviewboardService;
 import com.example.myproject.service.UserService;
 
@@ -45,6 +37,9 @@ public class AdminController { //관리자
 	private EventboardService ebService; //이벤트
 	@Autowired
 	private ProductboardService pbService; //제품
+	@Autowired
+	private QnaService qService;
+
 
 	
 	
@@ -168,9 +163,7 @@ public class AdminController { //관리자
 		return "success";
 	}
 	
-	
-	
-	
+		
 	
 	//제품관리(정기구독, 침구) 
 	//전체보기(어드민)
@@ -215,25 +208,32 @@ public class AdminController { //관리자
 	}
 	
 	
+	//큐앤에이
+	//전체보기
+	@GetMapping("/admin/qna")
+	public String qna(Model model) {
+		model.addAttribute("lists",qService.findAll());
+		model.addAttribute("count",qService.count());
+		return "/admin/qna";
+	}
 	
 	
-	//관리자 상품페이지내 리뷰관리페이지
-	@GetMapping("/admin/comment")
-	public String comment() {
-		return "/admin/comment";
-	}
-	//관리자 블로그 관리 페이지
-	@GetMapping("/admin/blog")
-	public String blog() {
-		return "/admin/blog";
-	}
+	/*
+	 * //관리자 상품페이지내 리뷰관리페이지
+	 * 
+	 * @GetMapping("/admin/comment") public String comment(Model model) { return
+	 * "/admin/comment"; }
+	 */
 
-
-	
-	// 관리자 사이트 통계 페이지
-	@GetMapping("/admin/charts")
-	public String charts() {
-		return "/admin/charts";
-	}
+	/*
+	 * //관리자 블로그 관리 페이지
+	 * 
+	 * @GetMapping("/admin/blog") public String blog() { return "/admin/blog"; }
+	 * 
+	 * // 관리자 사이트 통계 페이지
+	 * 
+	 * @GetMapping("/admin/charts") public String charts() { return "/admin/charts";
+	 * }
+	 */
 
 }

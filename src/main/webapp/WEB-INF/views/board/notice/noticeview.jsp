@@ -3,21 +3,18 @@
 <%@ include file="../../layout/header.jsp"%>
 <section class="module-small bg-dark-1"
 	data-background="/assets/images/subs/head02.jpg"></section>
-
 <section class="module home-full-weight bg-light">
 	<div class="container">
 		<div class="row">
 			<div class="col-10" style="float: none; margin: 0 auto;">
 				<h2 class="font-alt">Notice</h2>
 				<br /> <br /> <br />
-
 				<div class="post ">
 					<div class="post-header">
 						<blockquote>
 							<h1 class="post-title">${nboard.noticeTitle }</h1>
 						</blockquote>
 					</div>
-					
 					<input class="form-control" id="noticeCode" type="hidden"
 						name="noticeCode" value="${nboard.noticeCode }" />
 					<div style="float: right; margin: 0 auto;">
@@ -25,8 +22,7 @@
 							${nboard.noticeWriter } &nbsp;| &nbsp; ${nboard.noticeRegdate }&nbsp;
 							| &nbsp; 조회수 ${nboard.noticeHitcount }</h5>
 					</div>
-					<br />
-					<br />
+					<br /> <br />
 					<div class="post-entry">
 						<p>${nboard.noticeContent }</p>
 					</div>
@@ -38,27 +34,24 @@
 							<input type="button"
 								class="btn btn-d btn-round btn-sm float-right"
 								onclick="location.href='/noticelist'" value="list">
-
 							<c:if test="${principal.user.userrole =='ROLE_ADMIN' }">
 								<input type="button"
-									class="btn btn-g btn-round btn-sm float-right" id="btnNDelete"
-									value="Delete">
+									class="btn btn-danger btn-round btn-sm float-right"
+									id="btnNDelete" value="Delete">
 
 								<input type="button"
-									class="btn btn btn-g btn-round float-right btn-sm"
+									class="btn btn btn-d btn-round float-right btn-sm"
 									onclick="location.href='../noticeupdate/${noticeCode}'"
 									value="Update">
 							</c:if>
-
 						</div>
 					</div>
 					<br />
-
 					<form action="post">
 						<div class="comment-form">
 							<h4 class="comment-form-title font-alt">ADD YOUR COMMENT</h4>
 							<input class="form-control" id="noticeCode" type="hidden"
-							name="noticeCode" value="${nboard.noticeCode }" />
+								name="noticeCode" value="${nboard.noticeCode }" />
 							<sec:authorize access="isAnonymous()">
 								<div class="form-group">
 									<label class="sr-only" for="username">ID</label> <input
@@ -85,13 +78,12 @@
 								id="commentBtn">Post comment</button>
 						</div>
 					</form>
-					<div class="comments" id="comments">-</div>
+					<div class="comments" id="comments"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
 <script>
 	//댓글출력
 	var init = function(){
@@ -169,8 +161,8 @@ $("#commentBtn").click(function(){
 		.done(function(resp){
 			if(resp=="success"){
 			alert("댓글추가 성공");
-			$("#nContent").val("");  //성공후 댓글란 공백처리
 			init();
+			$("#nContent").val("");  //성공후 댓글란 공백처리
 			}
 		})
 		.fail(function(request, status, error){

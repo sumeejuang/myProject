@@ -21,7 +21,6 @@ public class UserController { //회원
 	
 	@Autowired
 	private UserService userservice;
-	
 	@Autowired
 	private UserRepository userrepository; //회원가입 아이디 중복확인위함
 		
@@ -31,7 +30,6 @@ public class UserController { //회원
 	public String join() {
 		return "/user/joinForm";
 	}	
-	
 	//아이디체크
 	@GetMapping("idck")
 	@ResponseBody //문자열
@@ -42,7 +40,6 @@ public class UserController { //회원
 			return "success";
 		}
 	}
-	
 	//가입
 	@PostMapping("register")
 	@ResponseBody //문자열
@@ -53,14 +50,12 @@ public class UserController { //회원
 		userservice.register(user);
 		return "success";
 	}
-	
 	//정보보기(마이페이지)
 	@GetMapping("mypage/{usercode}")
 	public String mypage(@PathVariable Long usercode, Model model) {	
 		model.addAttribute("list",userservice.findById(usercode)); 
 		return "/user/mypage";
 	}
-	
 	//수정폼(로그인한회원,관리자)
 	@GetMapping("updateForm/{usercode}")
 	public String updateform(@PathVariable Long usercode, Model model) {
@@ -75,7 +70,6 @@ public class UserController { //회원
 		userservice.update(data);
 		return "success";
 	}
-	
 	//삭제
 	@DeleteMapping("delete/{usercode}")
 	@ResponseBody 
@@ -83,13 +77,11 @@ public class UserController { //회원
 		userservice.delete(usercode); 
 		return "success";
 	}
-	
 	//로그인폼
 	@GetMapping("loginForm")
 	public String login() {
 		return "/user/loginForm";
 	}
-	
 	//로그인실패시
 	 @GetMapping("/loginck")
     public String login(@RequestParam(value = "error", required = false) String error,
